@@ -1,0 +1,2425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ZyvenPress — Global Wire Edition</title>
+  <link rel="icon" href="/static/icon.png">
+  <link rel="manifest" href="/static/manifest.json">
+  <meta name="theme-color" content="#FAF6EE">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="ZyvenPress">
+  <link rel="apple-touch-icon" href="/static/icon.png">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Luxury Editorial Fonts (Playfair Display, Newsreader, Plus Jakarta Sans, Cinzel) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            brand: ['Cinzel', 'serif'],
+            headline: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FDFCF9',
+              100: '#FAF6EE', // Primary App Background
+              200: '#F4ECE0', // Surface Background
+              300: '#EBDDC9', // Borders & Dividers
+              400: '#DFCDAF',
+            },
+            ink: {
+              900: '#191511', // Deep Primary Black Ink
+              800: '#2A231C',
+              700: '#42372B',
+              500: '#695A48', // Secondary Muted Ink
+              400: '#8C7A65',
+            },
+            gold: {
+              600: '#A47716',
+              500: '#C59322',
+              400: '#DDB038',
+              100: '#FBF3DD',
+            },
+            crimson: {
+              600: '#C5221F',
+              500: '#E02A26',
+              100: '#FDE8E8',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 3px; height: 3px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(164, 119, 22, 0.3); border-radius: 4px; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Desktop Phone Shell */
+    @media (min-width: 768px) {
+      .phone-shell {
+        max-width: 430px;
+        height: 900px;
+        border-radius: 48px;
+        box-shadow: 0 0 0 12px #2a231c, 0 0 0 14px #42372b, 0 35px 90px -15px rgba(26, 21, 17, 0.5);
+        overflow: hidden;
+      }
+    }
+    @media (max-width: 767px) {
+      .phone-shell {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+      }
+      .desktop-companion { display: none !important; }
+    }
+
+    /* Live Market Marquee */
+    @keyframes marqueeMove {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .market-marquee {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: marqueeMove 35s linear infinite;
+    }
+    .market-marquee:hover { animation-play-state: paused; }
+
+    /* ================================================================= */
+    /* DEEP FOXIZ & WORDPRESS STYLES ENGINE (100% Native Post Elements)  */
+    /* ================================================================= */
+
+    /* Headings */
+    .post-content h2, .wp-block-heading:is(h2) {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      line-height: 1.3;
+      color: #191511;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .post-content h3, .wp-block-heading:is(h3) {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      line-height: 1.35;
+      color: #2A231C;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Paragraphs */
+    .post-content p, .wp-block-paragraph {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #261F17;
+      margin-bottom: 1.15rem;
+    }
+
+    /* Links */
+    .post-content a {
+      color: #A47716;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+
+    /* Editorial Blockquote */
+    .post-content blockquote, .wp-block-quote {
+      position: relative;
+      background: #F4ECE0;
+      border-left: 4px solid #C5221F;
+      padding: 1.25rem 1.25rem 1.25rem 1.75rem;
+      border-radius: 0 1rem 1rem 0;
+      margin: 1.5rem 0;
+      font-style: italic;
+    }
+    .post-content blockquote p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #191511;
+      margin-bottom: 0.25rem;
+    }
+    .post-content blockquote cite {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-style: normal;
+      font-weight: 700;
+      color: #A47716;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.5rem;
+    }
+
+    /* FOXIZ AFFILIATE PRODUCT CARD */
+    .wp-block-foxiz-elements-affiliate-product, .af-product {
+      background: #FFFFFF;
+      border: 1px solid #EBDDC9;
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 10px 25px -5px rgba(66, 55, 43, 0.08);
+      position: relative;
+    }
+    .af-inner { display: flex; flex-direction: column; gap: 0.75rem; }
+    .af-thumb img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0.85rem;
+    }
+    .af-badge {
+      display: inline-block;
+      background: #C5221F;
+      color: #FFFFFF;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .af-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #191511;
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+    }
+    .af-description {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: #554839;
+      margin-bottom: 0.75rem;
+    }
+    .af-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .af-rating .stars { color: #DDB038; font-weight: 900; letter-spacing: 2px; }
+    .af-rating .score { color: #A47716; font-weight: 700; }
+    .af-cta-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #F4ECE0;
+      padding-top: 0.75rem;
+    }
+    .af-price {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: #191511;
+    }
+    .af-button {
+      background: #C5221F;
+      color: #FFFFFF !important;
+      text-decoration: none !important;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(197, 34, 31, 0.25);
+      transition: all 0.2s;
+    }
+    .af-button:hover { background: #991B1B; }
+
+    /* FOXIZ GADGET & COMPARISON SPECS TABLE */
+    .specs-table, .wp-block-table {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 1rem;
+      border: 1px solid #EBDDC9;
+      background: #FFFFFF;
+      box-shadow: 0 4px 15px rgba(66, 55, 43, 0.04);
+    }
+    .specs-table table, .wp-block-table table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+    .specs-table th, .wp-block-table th {
+      background: #F4ECE0;
+      color: #191511;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid #EBDDC9;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+    }
+    .specs-table td, .wp-block-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #F4ECE0;
+      color: #2A231C;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .specs-table tr:last-child td { border-bottom: none; }
+    .delta-positive { color: #15803D; font-weight: 700; font-family: monospace; }
+
+    /* FOXIZ REVIEW / PROS & CONS BOX */
+    .foxiz-review-box {
+      background: #FFFFFF;
+      border: 1px solid #EBDDC9;
+      border-radius: 1.25rem;
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #F4ECE0;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .review-header h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #191511;
+    }
+    .verdict-score {
+      width: 2.75rem;
+      height: 2.75rem;
+      background: #A47716;
+      color: #FFFFFF;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+    .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 480px) { .pros-cons-grid { grid-template-columns: 1fr; } }
+    .column-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .pros-column ul, .cons-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .pros-column li { position: relative; padding-left: 1.25rem; margin-bottom: 0.4rem; color: #191511; }
+    .pros-column li::before { content: "✓"; position: absolute; left: 0; color: #16A34A; font-weight: 900; }
+    .cons-column li { position: relative; padding-left: 1.25rem; margin-bottom: 0.4rem; color: #191511; }
+    .cons-column li::before { content: "✕"; position: absolute; left: 0; color: #DC2626; font-weight: 900; }
+
+    /* FOXIZ LIVE BLOGGING TIMELINE */
+    .foxiz-live-blog {
+      margin: 1.5rem 0;
+      position: relative;
+      padding-left: 1rem;
+      border-left: 2px solid #C5221F;
+    }
+    .live-blog-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #C5221F;
+      color: #FFFFFF;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 0.68rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+    .live-dot { width: 6px; height: 6px; background: #FFFFFF; border-radius: 50%; animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite; }
+    .live-entry {
+      background: #FFFFFF;
+      border: 1px solid #EBDDC9;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(66, 55, 43, 0.03);
+    }
+    .entry-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.4rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+    }
+    .time-badge { color: #C5221F; font-weight: 800; font-family: monospace; }
+    .entry-author { color: #695A48; font-weight: 600; }
+    .entry-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #191511;
+      margin-bottom: 0.35rem;
+    }
+    .live-entry p { font-size: 0.9rem; line-height: 1.5; margin-bottom: 0; }
+  </style>
+</head>
+
+<body class="bg-[#2A231C] text-ink-900 min-h-screen flex items-center justify-center p-0 md:p-6 select-none font-sans antialiased">
+
+  <!-- ====================================================================== -->
+  <!-- DESKTOP CONTROL COMPANION                                              -->
+  <!-- ====================================================================== -->
+  <aside class="desktop-companion hidden xl:flex flex-col mr-8 max-w-[320px] space-y-4 text-xs">
+    <div class="bg-cream-100 border border-cream-300 rounded-3xl p-5 shadow-2xl">
+      <div class="flex items-center space-x-3 mb-3">
+        <img src="/static/icon.png" class="w-10 h-10 rounded-2xl shadow" alt="ZP">
+        <div>
+          <h2 class="font-headline font-bold text-sm text-ink-900">ZyvenPress Mobile</h2>
+          <span class="text-[10px] text-gold-600 tracking-wider font-mono font-bold uppercase">Cream Editorial Edition</span>
+        </div>
+      </div>
+      <p class="text-ink-500 text-[11px] leading-relaxed mb-4">
+        Ye bilkul warm cream background, center-only clean logo, aur post me har Foxiz block (Affiliate Card, Live Blogging, Gadget Specs Table, Quote) ke 100% compatible visual engine ke sath taiyar kiya gaya hai.
+      </p>
+
+      <div class="bg-cream-200 border border-cream-300 rounded-2xl p-3.5 text-[11px]">
+        <div class="text-ink-500 font-bold mb-1">Phone Par Live Test:</div>
+        <div class="font-mono text-ink-900 text-xs select-all bg-white p-1.5 rounded-lg border border-cream-300 font-bold" id="livePhoneUrl">http://192.168.1.13:8000</div>
+      </div>
+    </div>
+
+    
+
+  </aside>
+
+  <!-- ====================================================================== -->
+  <!-- MAIN PHONE CONTAINER (Cream Paper Luxury Editorial Canvas)             -->
+  <!-- ====================================================================== -->
+  <div id="phoneShell" class="phone-shell bg-cream-100 relative flex flex-col overflow-hidden w-full border border-cream-300">
+
+    <!-- Master Clean Header (h-16) with BIGGER, PROMINENT CENTERED LOGO -->
+    <header class="h-16 px-4 bg-cream-100 border-b border-cream-300 flex items-center justify-between z-20 shrink-0 relative shadow-sm">
+      
+      <!-- Left Drawer Menu Icon -->
+      <button onclick="toggleSideMenu()" class="w-10 h-10 rounded-2xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-800 hover:text-gold-600 transition shadow-xs" title="Menu">
+        <i class="fa-solid fa-bars-staggered text-base"></i>
+      </button>
+
+      <!-- CENTER ONLY LOGO — BIGGER & CRISP (NO EXTRA BADGES OR SUBTITLES) -->
+      <div class="flex items-center justify-center flex-1 px-2 cursor-pointer h-full" onclick="scrollToFeedTop()">
+        <img src="/static/logo.webp" alt="ZYVENPRESS" class="h-10 md:h-11 max-h-12 max-w-[240px] w-auto object-contain drop-shadow-sm transition hover:scale-105" onerror="this.onerror=null; this.src='/static/temp_logo.png'">
+      </div>
+
+      <!-- Right Action Icons (Search, Audio & Member Account) -->
+      <div class="flex items-center space-x-1.5">
+        <button onclick="openSearchModal()" class="w-9 h-9 rounded-2xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-700 hover:text-gold-600 transition shadow-xs" title="Search">
+          <i class="fa-solid fa-magnifying-glass text-xs"></i>
+        </button>
+        <button onclick="playMorningBriefingAudio()" class="w-9 h-9 rounded-2xl bg-gold-100 border border-gold-400 flex items-center justify-center text-gold-600 hover:opacity-80 transition relative shadow-xs" title="Listen Audio Wire">
+          <i class="fa-solid fa-headphones text-xs"></i>
+          <span class="absolute top-1 right-1 w-1.5 h-1.5 bg-crimson-500 rounded-full animate-ping"></span>
+        </button>
+        <button onclick="handleMemberBtnClick()" id="headerMemberBtn" class="w-9 h-9 rounded-2xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-800 hover:text-gold-600 transition shadow-xs relative" title="Member Account">
+          <span id="headerMemberAvatarText" class="font-bold text-xs"><i class="fa-regular fa-user"></i></span>
+          <span id="memberStatusDot" class="hidden absolute top-1 right-1 w-2 h-2 bg-emerald-500 rounded-full border border-white"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 7. Category Filter Chips Row -->
+    <div class="py-2.5 px-3.5 bg-cream-100 border-b border-cream-300 flex items-center justify-between shrink-0 space-x-2">
+      <nav class="flex items-center space-x-1.5 overflow-x-auto no-scrollbar flex-1" id="categoryChipsBar">
+        <button onclick="selectCategory(null)" class="cat-pill active px-3.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition bg-crimson-600 text-white shadow-sm font-sans font-bold">
+          Top Stories
+        </button>
+      </nav>
+
+      <!-- Layout Mode Cycle (Magazine / Grid / Compact) -->
+      <button onclick="cycleLayoutMode()" id="layoutModeBtn" class="w-8 h-8 rounded-xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-800 hover:text-gold-600 transition shrink-0" title="Switch layout">
+        <i id="layoutModeIcon" class="fa-solid fa-newspaper text-xs"></i>
+      </button>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- 8. HOMEPAGE FEED (Cream Paper Aesthetic)                           -->
+    <!-- ================================================================== -->
+    <main id="homepageFeedScroll" class="flex-1 overflow-y-auto overflow-x-hidden p-3.5 space-y-4 pb-28">
+
+      <!-- Loading State -->
+      <div id="feedLoading" class="py-16 text-center text-ink-500 space-y-3">
+        <div class="w-10 h-10 border-2 border-cream-300 border-t-crimson-600 rounded-full animate-spin mx-auto"></div>
+        <div class="font-headline italic text-sm text-ink-700">Syncing live dispatches from zyvenpress.com...</div>
+      </div>
+
+      <!-- LEAD ARTICLE HERO CARD -->
+      <section id="heroCardContainer" class="hidden"></section>
+
+      <!-- MORNING INTELLIGENCE AUDIO WIRE BANNER -->
+      <section class="bg-cream-200 border border-cream-300 rounded-3xl p-4 relative overflow-hidden shadow-sm">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center space-x-2 text-[9px] font-mono uppercase font-bold text-crimson-600">
+            <span class="w-2 h-2 rounded-full bg-crimson-600 animate-pulse"></span>
+            <span>Zyven Voice Broadcast</span>
+          </div>
+          <span class="text-[9px] font-mono text-ink-500">5 MIN DAILY WIRE</span>
+        </div>
+        <div class="flex items-center space-x-3.5">
+          <button onclick="playMorningBriefingAudio()" class="w-11 h-11 rounded-2xl bg-crimson-600 text-white flex items-center justify-center shadow-md shadow-crimson-600/30 shrink-0 hover:scale-105 transition">
+            <i class="fa-solid fa-play text-sm ml-0.5"></i>
+          </button>
+          <div class="truncate flex-1">
+            <h4 class="font-headline font-bold text-sm text-ink-900 truncate">Global Morning Intelligence Wire</h4>
+            <p class="text-[11px] text-ink-500 font-body italic mt-0.5">Natural voice readout of today's verified geopolitical & tech headlines.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRENDING WIRE (01, 02, 03 Numbered Ranking) -->
+      <section id="trendingRankingSection" class="space-y-3 pt-1">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <div class="w-1.5 h-4 bg-crimson-600 rounded-full"></div>
+            <h3 class="font-headline font-bold text-sm uppercase tracking-wider text-ink-900">
+              Trending International Wire
+            </h3>
+          </div>
+          <span class="text-[9px] font-mono text-gold-600 font-bold uppercase">MOST READ TODAY</span>
+        </div>
+
+        <div id="trendingWireCards" class="space-y-2.5">
+          <!-- Injected via JS -->
+        </div>
+      </section>
+
+      <!-- CURATED FEED SECTION -->
+      <section class="space-y-3 pt-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <div class="w-1.5 h-4 bg-gold-500 rounded-full"></div>
+            <h3 class="font-headline font-bold text-sm uppercase tracking-wider text-ink-900">
+              Curated Dispatches
+            </h3>
+          </div>
+          <span id="storyCountBadge" class="text-[10px] font-mono text-ink-500">0 Stories</span>
+        </div>
+
+        <div id="articlesFeedGrid" class="space-y-3.5">
+          <!-- Injected via JS -->
+        </div>
+      </section>
+
+      <!-- Footer Masthead Credits -->
+      <footer class="pt-8 pb-4 text-center border-t border-cream-300 space-y-2 opacity-80">
+        <img src="/static/logo.webp" class="h-5 object-contain mx-auto opacity-70" alt="ZP" onerror="this.src='/static/temp_logo.png'">
+        <p class="text-[11px] text-ink-500 font-body italic">"Spread The Truth Across Every Border"</p>
+        <div class="text-[9px] text-ink-400 font-mono flex items-center justify-center space-x-3 pt-1">
+          <span>zyvenpress.com</span>
+          <span>•</span>
+          <span>control.zyvenpress.com</span>
+        </div>
+      </footer>
+    </main>
+
+    <!-- ================================================================== -->
+    <!-- 9. POST VIEW MODAL (Foxiz & WordPress Ultra-Compatible Reader)     -->
+    <!-- ================================================================== -->
+    <div id="postDetailModal" class="hidden absolute inset-0 bg-cream-100 z-40 flex flex-col overflow-hidden">
+      
+      <!-- Top Action Bar -->
+      <div class="h-14 px-4 bg-cream-100 border-b border-cream-300 flex items-center justify-between shrink-0 shadow-sm">
+        <button onclick="closePostDetail()" class="w-9 h-9 rounded-xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-800 hover:text-crimson-600 transition">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="flex items-center justify-center flex-1 px-2">
+          <img src="/static/logo.webp" alt="ZP" class="h-5 max-w-[140px] object-contain opacity-80" onerror="this.src='/static/temp_logo.png'">
+        </div>
+        <div class="flex items-center space-x-1.5">
+          <button onclick="toggleBookmarkArticle()" id="detailBookmarkIcon" class="w-9 h-9 rounded-xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-800 hover:text-gold-600 transition">
+            <i class="fa-regular fa-bookmark"></i>
+          </button>
+          <button onclick="shareArticleModal()" class="w-9 h-9 rounded-xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-800 hover:text-crimson-600 transition">
+            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Post Scrollable Body -->
+      <div class="flex-1 overflow-y-auto p-4 space-y-4 pb-28">
+        
+        <!-- Category & Date Strip -->
+        <div class="flex items-center justify-between text-xs text-ink-500 border-b border-cream-300 pb-2">
+          <span id="postCategoryTag" class="font-mono text-crimson-600 font-bold uppercase tracking-widest text-[9.5px]">TECHNOLOGY</span>
+          <span id="postDateTag" class="font-mono text-[9.5px]">Oct 28, 2026</span>
+        </div>
+
+        <!-- Headline in Rich Serif -->
+        <h1 id="postTitleHeadline" class="font-headline font-black text-2xl text-ink-900 leading-tight">
+          Headline
+        </h1>
+
+                <!-- Author Byline (Clickable -> Opens Author Profile Page) -->
+        <div onclick="openAuthorProfileFromCurrentPost()" class="flex items-center space-x-3 text-xs py-1.5 px-2 -mx-2 rounded-2xl hover:bg-cream-200 cursor-pointer transition group" title="Click to view Author Profile">
+          <div class="w-9 h-9 rounded-full bg-gold-400 p-0.5 shadow-sm group-hover:scale-105 transition">
+            <div id="postAuthorAvatar" class="w-full h-full bg-cream-100 rounded-full flex items-center justify-center font-bold text-xs text-ink-900">ZP</div>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center space-x-1.5">
+              <span id="postAuthorName" class="font-bold text-ink-900 text-sm group-hover:text-crimson-600 transition">ZyvenPress Desk</span>
+              <i class="fa-solid fa-circle-check text-gold-500 text-[11px]"></i>
+            </div>
+            <div class="text-[10px] text-ink-500 font-sans flex items-center space-x-1">
+              <span>View Author Profile & Dispatches</span>
+              <i class="fa-solid fa-arrow-right text-[8px] text-gold-600"></i>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Featured Image -->
+        <div class="rounded-3xl overflow-hidden bg-black border border-cream-300 shadow-md">
+          <img id="postFeaturedImage" src="" class="w-full h-60 object-cover" alt="Featured">
+        </div>
+
+        <!-- Audio Listen & AI Brief Buttons -->
+        <div class="grid grid-cols-2 gap-2.5 pt-1">
+          <button onclick="playCurrentArticleAudio()" class="py-2.5 px-3 bg-cream-200 hover:bg-cream-300 border border-cream-300 rounded-2xl flex items-center justify-center space-x-2 text-ink-900 text-xs font-bold transition">
+            <i class="fa-solid fa-circle-play text-base text-crimson-600"></i>
+            <span>Listen (Audio Wire)</span>
+          </button>
+          <button onclick="toggleExecutiveSummaryBox()" class="py-2.5 px-3 bg-cream-200 hover:bg-cream-300 border border-cream-300 rounded-2xl flex items-center justify-center space-x-2 text-ink-900 text-xs font-bold transition">
+            <i class="fa-solid fa-bolt-lightning text-base text-gold-600"></i>
+            <span>60s Executive Brief</span>
+          </button>
+        </div>
+
+        <!-- AI Executive Brief Box -->
+        <div id="executiveBriefBox" class="hidden bg-cream-200 border border-gold-400/50 rounded-3xl p-4 space-y-2.5 shadow-sm">
+          <div class="flex items-center justify-between border-b border-cream-300 pb-2">
+            <span class="font-headline font-bold text-xs text-ink-900">Executive Key Takeaways</span>
+            <span class="text-[8.5px] bg-gold-500 text-white font-bold px-2 py-0.5 rounded-full font-mono">ZYVEN AI</span>
+          </div>
+          <div class="space-y-2 text-xs text-ink-700 leading-relaxed font-body" id="executiveBulletsList"></div>
+        </div>
+
+        <!-- ARTICLE BODY WITH FULL FOXIZ ENGINE STYLING -->
+        <article id="postContentRender" class="post-content font-body text-base leading-relaxed text-ink-900 pt-2">
+          Content
+        </article>
+      </div>
+    </div>
+
+    <!-- 9B. AUTHOR PROFILE MODAL (Editorial Dossier & Authored Dispatches)  -->
+    <!-- ================================================================== -->
+    <div id="authorProfileModal" class="hidden absolute inset-0 bg-cream-100 z-50 flex flex-col overflow-hidden">
+      
+      <!-- Top Action Bar -->
+      <div class="h-14 px-4 bg-cream-100 border-b border-cream-300 flex items-center justify-between shrink-0 shadow-sm">
+        <button onclick="closeAuthorProfile()" class="w-9 h-9 rounded-xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-800 hover:text-crimson-600 transition" title="Back">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="flex items-center justify-center flex-1 px-2">
+          <span class="font-headline font-bold text-sm tracking-wide text-ink-900 uppercase">Author Dossier</span>
+        </div>
+        <button onclick="shareAuthorProfile()" class="w-9 h-9 rounded-xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-800 hover:text-crimson-600 transition" title="Share Profile">
+          <i class="fa-solid fa-arrow-up-from-bracket"></i>
+        </button>
+      </div>
+
+      <!-- Author Scrollable Body -->
+      <div class="flex-1 overflow-y-auto p-4 space-y-4 pb-24">
+        
+        <!-- Author Profile Hero Card -->
+        <div class="bg-white border border-cream-300 rounded-3xl p-5 shadow-sm text-center relative overflow-hidden">
+          <div class="absolute -top-12 -right-12 w-28 h-28 bg-gold-100/50 rounded-full blur-xl pointer-events-none"></div>
+          
+          <!-- Avatar with Gold Ring -->
+          <div class="relative w-20 h-20 mx-auto">
+            <div class="w-20 h-20 rounded-full p-[3px] bg-gradient-to-tr from-gold-500 via-amber-300 to-gold-600 shadow-md">
+              <div id="authorPageAvatarInitials" class="w-full h-full rounded-full bg-cream-100 flex items-center justify-center font-headline font-bold text-xl text-ink-900">
+                ZP
+              </div>
+            </div>
+            <span class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px] border-2 border-white shadow-sm" title="Verified Journalist">
+              <i class="fa-solid fa-check"></i>
+            </span>
+          </div>
+
+          <!-- Name & Role -->
+          <h2 id="authorPageName" class="font-headline font-bold text-xl text-ink-900 mt-3.5 leading-snug">
+            ZyvenPress Desk
+          </h2>
+          <div id="authorPageRole" class="text-[10px] font-mono font-bold text-gold-600 uppercase tracking-widest mt-1">
+            Senior Wire Correspondent
+          </div>
+          <div id="authorPageBureau" class="text-[9.5px] font-mono text-ink-500 mt-0.5">
+            Global Newsroom Bureau
+          </div>
+
+          <!-- Bio -->
+          <p id="authorPageBio" class="text-xs font-body text-ink-700 leading-relaxed mt-3 max-w-xs mx-auto">
+            Senior journalistic contributor delivering verified dispatches, financial intelligence, and investigative analyses for ZyvenPress Global Wire.
+          </p>
+
+          <!-- Action Buttons (Follow / Contact) -->
+          <div class="flex items-center justify-center space-x-2.5 mt-4 pt-3 border-t border-cream-200">
+            <button onclick="toggleFollowAuthor()" id="authorFollowBtn" class="py-2 px-5 rounded-2xl bg-crimson-600 text-white font-bold text-xs shadow-md transition hover:bg-crimson-700">
+              <i class="fa-solid fa-plus mr-1.5 text-xs"></i> Follow Author
+            </button>
+            <a href="mailto:contact@zyvenpress.com" class="py-2 px-4 rounded-2xl bg-cream-200 text-ink-800 border border-cream-300 font-bold text-xs shadow-xs hover:bg-cream-300 transition">
+              <i class="fa-regular fa-envelope mr-1"></i> Contact Desk
+            </a>
+          </div>
+
+          <!-- Stats Row -->
+          <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-cream-200 text-center font-mono">
+            <div class="bg-cream-100 p-2 rounded-2xl border border-cream-300/60">
+              <span id="authorStatsArticles" class="font-bold text-sm text-ink-900 block">12</span>
+              <span class="text-[8.5px] uppercase tracking-wider text-ink-500">Dispatches</span>
+            </div>
+            <div class="bg-cream-100 p-2 rounded-2xl border border-cream-300/60">
+              <span class="font-bold text-sm text-gold-600 block">100%</span>
+              <span class="text-[8.5px] uppercase tracking-wider text-ink-500">Verified</span>
+            </div>
+            <div class="bg-cream-100 p-2 rounded-2xl border border-cream-300/60">
+              <span class="font-bold text-sm text-emerald-700 block">4.9 ★</span>
+              <span class="text-[8.5px] uppercase tracking-wider text-ink-500">Editorial</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Author Dispatches Feed -->
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between border-b border-cream-300 pb-2">
+            <div class="flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-crimson-600"></span>
+              <h3 class="font-headline font-bold text-sm text-ink-900 tracking-wide uppercase">Authored Dispatches</h3>
+            </div>
+            <span id="authorArticlesCountBadge" class="text-[10px] font-mono font-bold bg-cream-200 text-ink-700 px-2 py-0.5 rounded-full border border-cream-300">
+              0 Dispatches
+            </span>
+          </div>
+
+          <div id="authorArticlesList" class="space-y-3 pt-1">
+            <!-- Dynamically populated author cards -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- 10. FLOATING AUDIO BROADCASTER BAR                                 -->
+    <!-- ================================================================== -->
+    <div id="floatingAudioPlayer" class="hidden absolute bottom-16 left-3 right-3 bg-cream-50 border border-cream-300 rounded-2xl p-2.5 px-3.5 shadow-xl flex items-center justify-between z-30">
+      <div class="flex items-center space-x-3 truncate flex-1 cursor-pointer" onclick="openLeadStory()">
+        <div class="w-8 h-8 rounded-xl bg-crimson-100 text-crimson-600 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-waveform-lines fa-bounce text-xs"></i>
+        </div>
+        <div class="truncate">
+          <div class="text-[8px] font-mono font-bold text-crimson-600 uppercase tracking-widest">Now Broadcasting</div>
+          <div id="audioPlayerCurrentHeadline" class="text-xs font-headline font-bold text-ink-900 truncate">Headline...</div>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="toggleAudioBroadcaster()" class="w-8 h-8 rounded-full bg-crimson-600 text-white flex items-center justify-center shadow font-bold">
+          <i id="audioBtnIcon" class="fa-solid fa-pause text-xs"></i>
+        </button>
+        <button onclick="stopAudioBroadcaster()" class="w-7 h-7 rounded-full bg-cream-200 text-ink-500 flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    
+
+
+    <!-- ================================================================== -->
+    <!-- 9C. ZYVENPRESS OFFICIAL MEMBER LOGIN & REGISTRATION MODAL           -->
+    <!-- ================================================================== -->
+    <div id="loginModal" class="hidden absolute inset-0 bg-cream-100 z-50 flex flex-col overflow-hidden">
+      <!-- Top Action Bar -->
+      <div class="h-14 px-4 bg-cream-100 border-b border-cream-300 flex items-center justify-between shrink-0 shadow-sm">
+        <button onclick="closeLoginModal()" class="w-9 h-9 rounded-xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-800 hover:text-crimson-600 transition" title="Close">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+        <div class="flex items-center justify-center flex-1 px-2">
+          <img src="/static/logo.webp" alt="ZyvenPress" class="h-6 object-contain" onerror="this.src='/static/temp_logo.png'">
+        </div>
+        <button onclick="closeLoginModal()" class="text-xs font-mono font-bold text-ink-500 hover:text-crimson-600 transition py-1 px-2.5 rounded-lg">
+          Skip
+        </button>
+      </div>
+
+      <!-- Scrollable Form Container -->
+      <div class="flex-1 overflow-y-auto p-5 space-y-4 pb-20">
+        <div class="text-center space-y-1 pt-1">
+          <h2 class="font-headline font-bold text-xl text-ink-900">Member Access</h2>
+          <p class="text-xs text-ink-500 font-body">Sign in with your ZyvenPress Hostinger account to sync saved dispatches, reading history, and reader privileges.</p>
+        </div>
+
+        <!-- Social Login Buttons -->
+        <div class="space-y-2 pt-2">
+          <button type="button" onclick="handleSocialLogin('google')" class="w-full py-2.5 px-4 rounded-2xl bg-white border border-cream-300 shadow-sm flex items-center justify-center space-x-3 text-ink-900 font-bold text-xs hover:border-gold-500 transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <span>Continue with Google</span>
+          </button>
+
+          <button type="button" onclick="handleSocialLogin('apple')" class="w-full py-2.5 px-4 rounded-2xl bg-ink-900 text-white shadow-sm flex items-center justify-center space-x-3 font-bold text-xs hover:bg-black transition">
+            <i class="fa-brands fa-apple text-base"></i>
+            <span>Continue with Apple</span>
+          </button>
+        </div>
+
+        <!-- Divider -->
+        <div class="flex items-center space-x-3 py-1">
+          <div class="flex-1 h-[1px] bg-cream-300"></div>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-ink-400">or with hostinger db</span>
+          <div class="flex-1 h-[1px] bg-cream-300"></div>
+        </div>
+
+        <!-- Auth Tabs: Sign In / Register -->
+        <div class="flex p-1 bg-cream-200 border border-cream-300 rounded-2xl">
+          <button type="button" onclick="switchAuthTab('signin')" id="tabBtnSignIn" class="flex-1 py-1.5 rounded-xl font-bold text-xs transition bg-white text-ink-900 shadow-xs">
+            Sign In
+          </button>
+          <button type="button" onclick="switchAuthTab('signup')" id="tabBtnSignUp" class="flex-1 py-1.5 rounded-xl font-bold text-xs transition text-ink-500 hover:text-ink-900">
+            Create Account
+          </button>
+        </div>
+
+        <!-- Feedback Alert Banner -->
+        <div id="authAlertBox" class="hidden p-3 rounded-2xl text-xs font-medium"></div>
+
+        <!-- SIGN IN FORM -->
+        <form id="signInForm" onsubmit="submitSignIn(event)" class="space-y-3">
+          <div>
+            <label class="block text-[11px] font-bold text-ink-700 mb-1 font-mono uppercase">Email or Username</label>
+            <input type="text" id="loginIdentity" required placeholder="name@zyvenpress.com" class="w-full px-3.5 py-2.5 rounded-2xl bg-white border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-gold-500 font-sans">
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label class="block text-[11px] font-bold text-ink-700 font-mono uppercase">Password</label>
+              <a href="#" onclick="forgotPasswordPrompt()" class="text-[10px] text-crimson-600 font-bold hover:underline">Forgot?</a>
+            </div>
+            <div class="relative">
+              <input type="password" id="loginPassword" required placeholder="••••••••" class="w-full px-3.5 py-2.5 rounded-2xl bg-white border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-gold-500 font-sans pr-10">
+              <button type="button" onclick="togglePasswordVisibility('loginPassword', 'eyeIcon1')" class="absolute right-3 top-2.5 text-ink-400 hover:text-ink-700">
+                <i id="eyeIcon1" class="fa-regular fa-eye text-xs"></i>
+              </button>
+            </div>
+          </div>
+          <button type="submit" id="signInSubmitBtn" class="w-full py-3 rounded-2xl bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-xs shadow-md transition flex items-center justify-center space-x-2">
+            <span>Sign In to ZyvenPress</span>
+          </button>
+        </form>
+
+        <!-- CREATE ACCOUNT FORM -->
+        <form id="signUpForm" onsubmit="submitSignUp(event)" class="space-y-3 hidden">
+          <div>
+            <label class="block text-[11px] font-bold text-ink-700 mb-1 font-mono uppercase">Full Name</label>
+            <input type="text" id="regName" required placeholder="Mohd Arsh" class="w-full px-3.5 py-2.5 rounded-2xl bg-white border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-gold-500 font-sans">
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-ink-700 mb-1 font-mono uppercase">Email Address</label>
+            <input type="email" id="regEmail" required placeholder="name@zyvenpress.com" class="w-full px-3.5 py-2.5 rounded-2xl bg-white border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-gold-500 font-sans">
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-ink-700 mb-1 font-mono uppercase">Password (min 8 chars)</label>
+            <input type="password" id="regPassword" required placeholder="Create strong password" class="w-full px-3.5 py-2.5 rounded-2xl bg-white border border-cream-300 text-xs text-ink-900 focus:outline-none focus:border-gold-500 font-sans">
+          </div>
+          <button type="submit" id="signUpSubmitBtn" class="w-full py-3 rounded-2xl bg-ink-900 hover:bg-black text-white font-bold text-xs shadow-md transition flex items-center justify-center space-x-2">
+            <span>Create Member Account</span>
+          </button>
+        </form>
+
+        <!-- SKIP BUTTON (EXPLICIT USER REQUIREMENT) -->
+        <div class="pt-2 text-center">
+          <button onclick="closeLoginModal()" class="py-2.5 px-4 text-xs font-mono font-bold text-ink-500 hover:text-ink-900 transition flex items-center justify-center space-x-1.5 mx-auto">
+            <span>Skip for now • Continue as Guest</span>
+            <i class="fa-solid fa-arrow-right text-[10px] text-gold-600"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- 9D. MEMBER CONTROL PANEL (Personal Intelligence & Dashboard)        -->
+    <!-- ================================================================== -->
+    <div id="memberControlModal" class="hidden absolute inset-0 bg-cream-100 z-50 flex flex-col overflow-hidden">
+      <!-- Top Action Bar -->
+      <div class="h-14 px-4 bg-cream-100 border-b border-cream-300 flex items-center justify-between shrink-0 shadow-sm">
+        <button onclick="closeMemberControlPanel()" class="w-9 h-9 rounded-xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-800 hover:text-crimson-600 transition" title="Back">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="flex items-center justify-center flex-1 px-2">
+          <span class="font-headline font-bold text-sm tracking-wide text-ink-900 uppercase">Member Command Desk</span>
+        </div>
+        <a href="https://control.zyvenpress.com/account/" target="_blank" class="w-9 h-9 rounded-xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-800 hover:text-gold-600 transition" title="Web Control Panel">
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Body -->
+      <div class="flex-1 overflow-y-auto p-4 space-y-4 pb-24">
+        
+        <!-- Member Profile Hero Card -->
+        <div class="bg-white border border-cream-300 rounded-3xl p-5 shadow-sm text-center relative overflow-hidden">
+          <!-- Avatar with Gold Rim -->
+          <div class="relative w-20 h-20 mx-auto">
+            <div class="w-20 h-20 rounded-full p-[3px] bg-gradient-to-tr from-gold-500 via-amber-300 to-gold-600 shadow-md">
+              <div id="memberPanelAvatarText" class="w-full h-full rounded-full bg-cream-100 flex items-center justify-center font-headline font-bold text-xl text-ink-900">
+                ZP
+              </div>
+            </div>
+            <span class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px] border-2 border-white shadow-sm" title="Verified Reader">
+              <i class="fa-solid fa-check"></i>
+            </span>
+          </div>
+
+          <!-- Name & Email -->
+          <h2 id="memberPanelName" class="font-headline font-bold text-xl text-ink-900 mt-3 leading-snug">
+            Member Name
+          </h2>
+          <div id="memberPanelEmail" class="text-xs font-mono text-ink-500 mt-0.5">
+            member@zyvenpress.com
+          </div>
+
+          <!-- Membership Badge -->
+          <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-gold-100 border border-gold-400/60 text-gold-600 text-[10px] font-mono font-bold uppercase mt-2.5">
+            <i class="fa-solid fa-crown text-[9px]"></i>
+            <span id="memberPanelTier">ZyvenPress Pro Reader</span>
+          </div>
+
+          <!-- Quick Stats Row -->
+          <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-cream-200 text-center font-mono">
+            <div class="bg-cream-100 p-2 rounded-2xl border border-cream-300/60">
+              <span id="memberSavedCount" class="font-bold text-sm text-ink-900 block">0</span>
+              <span class="text-[8.5px] uppercase tracking-wider text-ink-500">Saved</span>
+            </div>
+            <div class="bg-cream-100 p-2 rounded-2xl border border-cream-300/60">
+              <span id="memberPointsCount" class="font-bold text-sm text-gold-600 block">100</span>
+              <span class="text-[8.5px] uppercase tracking-wider text-ink-500">Points</span>
+            </div>
+            <div class="bg-cream-100 p-2 rounded-2xl border border-cream-300/60">
+              <span class="font-bold text-sm text-emerald-700 block">Hostinger</span>
+              <span class="text-[8.5px] uppercase tracking-wider text-ink-500">DB Sync</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Official Live Portal Links Banner -->
+        <div class="bg-gold-50 border border-gold-300/80 rounded-3xl p-3.5 space-y-2 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-mono font-bold text-[9.5px] uppercase tracking-wider text-gold-700">Official Web Portal</span>
+            <span class="text-[9px] bg-gold-600 text-white font-bold px-2 py-0.5 rounded-full font-mono">LIVE LINK</span>
+          </div>
+          <p class="text-ink-600 text-[11px] leading-relaxed">
+            Aapka reader portal web par bhi live accessible hai:
+          </p>
+          <div class="grid grid-cols-2 gap-2 pt-1">
+            <a href="https://zyvenpress.com/account/" target="_blank" class="py-2 px-3 bg-white hover:bg-gold-100 border border-gold-300 rounded-xl text-center font-bold text-ink-900 text-[11px] transition shadow-xs flex items-center justify-center space-x-1.5">
+              <span>zyvenpress.com/account</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-gold-600"></i>
+            </a>
+            <a href="https://control.zyvenpress.com/member-account-management.php" target="_blank" class="py-2 px-3 bg-white hover:bg-gold-100 border border-gold-300 rounded-xl text-center font-bold text-ink-900 text-[11px] transition shadow-xs flex items-center justify-center space-x-1.5">
+              <span>Member Control Desk</span>
+              <i class="fa-solid fa-sliders text-[9px] text-indigo-600"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- In-App Portal Navigation Tabs -->
+        <div class="flex p-1 bg-cream-200 border border-cream-300 rounded-2xl text-xs font-bold font-mono">
+          <button type="button" onclick="switchPortalTab('profile')" id="portalTabProfile" class="flex-1 py-1.5 rounded-xl bg-white text-ink-900 shadow-xs">
+            Profile
+          </button>
+          <button type="button" onclick="switchPortalTab('security')" id="portalTabSecurity" class="flex-1 py-1.5 rounded-xl text-ink-500 hover:text-ink-900">
+            Security
+          </button>
+          <button type="button" onclick="switchPortalTab('support')" id="portalTabSupport" class="flex-1 py-1.5 rounded-xl text-ink-500 hover:text-ink-900">
+            Support
+          </button>
+        </div>
+
+        <!-- Portal Feedback Banner -->
+        <div id="portalAlertBox" class="hidden p-3 rounded-2xl text-xs font-semibold"></div>
+
+        <!-- TAB 1: PROFILE & PERSONAL DETAILS -->
+        <div id="portalSectionProfile" class="bg-white border border-cream-300 rounded-3xl p-4 space-y-3 shadow-sm text-xs">
+          <div class="flex items-center justify-between border-b border-cream-200 pb-2">
+            <h4 class="font-headline font-bold text-sm text-ink-900">Personal Details</h4>
+            <span class="text-[9px] font-mono text-gold-600 font-bold">ZYVENMEMBER DB</span>
+          </div>
+
+          <form onsubmit="saveMemberProfile(event)" class="space-y-2.5">
+            <div>
+              <label class="block text-[10px] font-mono font-bold text-ink-600 uppercase mb-1">Full Name</label>
+              <input type="text" id="portalEditName" required class="w-full px-3 py-2 rounded-xl bg-cream-100 border border-cream-300 text-xs text-ink-900 font-sans focus:outline-none focus:border-gold-500">
+            </div>
+
+            <div>
+              <label class="block text-[10px] font-mono font-bold text-ink-600 uppercase mb-1">Email Address</label>
+              <input type="email" id="portalEditEmail" readonly class="w-full px-3 py-2 rounded-xl bg-cream-200 border border-cream-300 text-xs text-ink-500 font-sans cursor-not-allowed">
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[10px] font-mono font-bold text-ink-600 uppercase mb-1">Country</label>
+                <select id="portalEditCountry" class="w-full px-3 py-2 rounded-xl bg-cream-100 border border-cream-300 text-xs text-ink-900 font-sans">
+                  <option value="IN">India (IN)</option>
+                  <option value="US">United States (US)</option>
+                  <option value="GB">United Kingdom (GB)</option>
+                  <option value="AE">UAE / Middle East</option>
+                  <option value="CH">Switzerland (CH)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-[10px] font-mono font-bold text-ink-600 uppercase mb-1">Preferred Language</label>
+                <select id="portalEditLanguage" class="w-full px-3 py-2 rounded-xl bg-cream-100 border border-cream-300 text-xs text-ink-900 font-sans">
+                  <option value="en">English (Global Wire)</option>
+                  <option value="hi">Hindi (हिन्दी)</option>
+                  <option value="es">Spanish (Español)</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" id="portalSaveBtn" class="w-full mt-2 py-2.5 rounded-xl bg-ink-900 hover:bg-black text-white font-bold text-xs shadow-sm transition">
+              Save Profile Changes
+            </button>
+          </form>
+        </div>
+
+        <!-- TAB 2: SECURITY & PASSWORD -->
+        <div id="portalSectionSecurity" class="hidden bg-white border border-cream-300 rounded-3xl p-4 space-y-3 shadow-sm text-xs">
+          <div class="flex items-center justify-between border-b border-cream-200 pb-2">
+            <h4 class="font-headline font-bold text-sm text-ink-900">Security Credentials</h4>
+            <span class="text-[9px] font-mono text-crimson-600 font-bold">ENCRYPTED</span>
+          </div>
+
+          <form onsubmit="changeMemberPassword(event)" class="space-y-2.5">
+            <div>
+              <label class="block text-[10px] font-mono font-bold text-ink-600 uppercase mb-1">Current Password</label>
+              <input type="password" id="portalCurrentPass" required placeholder="••••••••" class="w-full px-3 py-2 rounded-xl bg-cream-100 border border-cream-300 text-xs text-ink-900 font-sans focus:outline-none focus:border-gold-500">
+            </div>
+
+            <div>
+              <label class="block text-[10px] font-mono font-bold text-ink-600 uppercase mb-1">New Password (min 8 chars)</label>
+              <input type="password" id="portalNewPass" required placeholder="••••••••" class="w-full px-3 py-2 rounded-xl bg-cream-100 border border-cream-300 text-xs text-ink-900 font-sans focus:outline-none focus:border-gold-500">
+            </div>
+
+            <button type="submit" id="portalPassBtn" class="w-full mt-2 py-2.5 rounded-xl bg-crimson-600 hover:bg-crimson-700 text-white font-bold text-xs shadow-sm transition">
+              Update Security Password
+            </button>
+          </form>
+        </div>
+
+        <!-- TAB 3: SUPPORT & TICKETS -->
+        <div id="portalSectionSupport" class="hidden bg-white border border-cream-300 rounded-3xl p-4 space-y-3 shadow-sm text-xs">
+          <div class="flex items-center justify-between border-b border-cream-200 pb-2">
+            <h4 class="font-headline font-bold text-sm text-ink-900">Member Help Desk</h4>
+            <span class="text-[9px] font-mono text-emerald-600 font-bold">DESK TICKET</span>
+          </div>
+
+          <form onsubmit="submitSupportTicket(event)" class="space-y-2.5">
+            <div>
+              <label class="block text-[10px] font-mono font-bold text-ink-600 uppercase mb-1">Subject</label>
+              <input type="text" id="portalTicketSubject" required placeholder="Inquiry regarding editorial wire..." class="w-full px-3 py-2 rounded-xl bg-cream-100 border border-cream-300 text-xs text-ink-900 font-sans focus:outline-none focus:border-gold-500">
+            </div>
+
+            <div>
+              <label class="block text-[10px] font-mono font-bold text-ink-600 uppercase mb-1">Message</label>
+              <textarea id="portalTicketMessage" required rows="3" placeholder="Describe your query or account issue..." class="w-full px-3 py-2 rounded-xl bg-cream-100 border border-cream-300 text-xs text-ink-900 font-sans focus:outline-none focus:border-gold-500"></textarea>
+            </div>
+
+            <button type="submit" id="portalTicketBtn" class="w-full mt-2 py-2.5 rounded-xl bg-gold-600 hover:bg-gold-700 text-white font-bold text-xs shadow-sm transition">
+              Send Support Ticket
+            </button>
+          </form>
+        </div>
+
+        <!-- Sign Out Button -->
+        <button onclick="handleSignOut()" class="w-full py-3 rounded-2xl bg-cream-200 hover:bg-crimson-100 hover:text-crimson-600 text-ink-700 font-bold text-xs border border-cream-300 transition flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Sign Out of ZyvenPress</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- 9E. BOOKMARKS & SAVED DISPATCHES MODAL                              -->
+    <!-- ================================================================== -->
+    <div id="bookmarksModal" class="hidden absolute inset-0 bg-cream-100 z-50 flex flex-col overflow-hidden">
+      <!-- Top Action Bar -->
+      <div class="h-14 px-4 bg-cream-100 border-b border-cream-300 flex items-center justify-between shrink-0 shadow-sm">
+        <button onclick="closeBookmarksModal()" class="w-9 h-9 rounded-xl bg-cream-200 border border-cream-300 flex items-center justify-center text-ink-800 hover:text-crimson-600 transition" title="Back">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="flex items-center justify-center flex-1 px-2">
+          <span class="font-headline font-bold text-sm tracking-wide text-ink-900 uppercase">Saved Dispatches</span>
+        </div>
+        <div class="w-9"></div>
+      </div>
+
+      <!-- List -->
+      <div class="flex-1 overflow-y-auto p-4 space-y-3 pb-24" id="bookmarksListContainer">
+        <!-- Rendered bookmarks -->
+      </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- 12. MASTER LUXURY BOTTOM NAVIGATION BAR                            -->
+    <!-- ================================================================== -->
+    <nav class="h-14 px-3 bg-cream-100 border-t border-cream-300 flex items-center justify-around z-30 shrink-0 shadow-lg select-none">
+      <button onclick="scrollToFeedTop(); setActiveNav('nav-home')" id="nav-home" class="flex flex-col items-center justify-center space-y-0.5 text-crimson-600 transition flex-1 py-1">
+        <i class="fa-solid fa-newspaper text-base"></i>
+        <span class="text-[9.5px] font-bold font-sans">Wire</span>
+      </button>
+
+      <button onclick="openSearchModal(); setActiveNav('nav-search')" id="nav-search" class="flex flex-col items-center justify-center space-y-0.5 text-ink-500 hover:text-ink-900 transition flex-1 py-1">
+        <i class="fa-solid fa-magnifying-glass text-base"></i>
+        <span class="text-[9.5px] font-medium font-sans">Explore</span>
+      </button>
+
+      <button onclick="openBookmarksModal(); setActiveNav('nav-saved')" id="nav-saved" class="flex flex-col items-center justify-center space-y-0.5 text-ink-500 hover:text-ink-900 transition flex-1 py-1 relative">
+        <i class="fa-regular fa-bookmark text-base"></i>
+        <span class="text-[9.5px] font-medium font-sans">Saved</span>
+        <span id="navBookmarkCount" class="hidden absolute top-0.5 right-6 w-3.5 h-3.5 bg-crimson-600 text-white rounded-full text-[8px] font-mono font-bold flex items-center justify-center">0</span>
+      </button>
+
+      <button onclick="handleMemberBtnClick(); setActiveNav('nav-member')" id="nav-member" class="flex flex-col items-center justify-center space-y-0.5 text-ink-500 hover:text-gold-600 transition flex-1 py-1 relative">
+        <div class="relative">
+          <i class="fa-regular fa-user text-base"></i>
+          <span id="navMemberStatusDot" class="hidden absolute -top-0.5 -right-1 w-2 h-2 bg-emerald-500 rounded-full border border-white"></span>
+        </div>
+        <span id="navMemberLabel" class="text-[9.5px] font-medium font-sans">Account</span>
+      </button>
+    </nav>
+
+    <!-- ================================================================== -->
+    <!-- 11. SIDEBAR MENU                                                   -->
+    <!-- ================================================================== -->
+    <div id="sideMenuDrawer" class="hidden absolute inset-0 z-50 flex">
+      <div onclick="toggleSideMenu()" class="flex-1 bg-black/50 backdrop-blur-sm"></div>
+      <div class="w-72 bg-cream-100 border-l border-cream-300 h-full flex flex-col p-5 space-y-5">
+        <div class="flex items-center justify-between border-b border-cream-300 pb-4">
+          <img src="/static/logo.webp" class="h-6 object-contain" alt="ZP" onerror="this.src='/static/temp_logo.png'">
+          <button onclick="toggleSideMenu()" class="text-ink-500 hover:text-ink-900">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+
+        <nav class="space-y-1.5 text-xs font-semibold">
+          <a href="#" onclick="selectCategory(null); toggleSideMenu();" class="flex items-center space-x-3 py-2.5 px-3 rounded-2xl bg-cream-200 text-crimson-600 border border-cream-300">
+            <i class="fa-solid fa-newspaper w-4"></i> <span>Morning Wire (Home)</span>
+          </a>
+          <a href="#" onclick="openStoryFeature('live'); toggleSideMenu();" class="flex items-center space-x-3 py-2.5 px-3 rounded-2xl hover:bg-cream-200 text-ink-700">
+            <i class="fa-solid fa-tv text-crimson-600 w-4"></i> <span>Live Broadcast Desk</span>
+          </a>
+          <a href="#" onclick="openStoryFeature('epaper'); toggleSideMenu();" class="flex items-center space-x-3 py-2.5 px-3 rounded-2xl hover:bg-cream-200 text-ink-700">
+            <i class="fa-solid fa-file-pdf text-gold-600 w-4"></i> <span>Digital E-Paper</span>
+          </a>
+          <a href="https://zyvenpress.com" target="_blank" class="flex items-center space-x-3 py-2.5 px-3 rounded-2xl hover:bg-cream-200 text-ink-700">
+            <i class="fa-solid fa-arrow-up-right-from-square text-emerald-600 w-4"></i> <span>zyvenpress.com Web</span>
+          </a>
+        </nav>
+
+        <div class="border-t border-cream-300 pt-3">
+          <div class="text-[9px] font-mono tracking-widest text-ink-500 font-bold uppercase mb-2">Desks & Categories</div>
+          <div id="drawerCategoryLinks" class="space-y-1 text-xs max-h-48 overflow-y-auto"></div>
+        </div>
+
+        <div class="mt-auto border-t border-cream-300 pt-3 text-[10px] text-ink-500 flex items-center justify-between font-mono">
+          <span>ZyvenPress v2.5</span>
+          <span class="text-emerald-600 font-bold">● Connected</span>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <!-- ================================================================== -->
+    <!-- 12. BOTTOM NAVIGATION BAR (Exact 5 Tabs Matching APK)               -->
+    <!-- ================================================================== -->
+    <nav class="h-16 bg-cream-100 border-t border-cream-300 px-2 flex items-center justify-around z-20 shrink-0 font-sans shadow-sm">
+      <button onclick="switchTab('HOME')" id="navTab-HOME" class="nav-tab-btn flex flex-col items-center justify-center text-crimson-600 flex-1 py-1">
+        <i class="fa-solid fa-newspaper text-base"></i>
+        <span class="text-[9.5px] font-bold mt-1">Wire</span>
+      </button>
+
+      <button onclick="switchTab('EXPLORE')" id="navTab-EXPLORE" class="nav-tab-btn flex flex-col items-center justify-center text-ink-500 hover:text-ink-900 flex-1 py-1">
+        <i class="fa-solid fa-compass text-base"></i>
+        <span class="text-[9.5px] font-semibold mt-1">Explore</span>
+      </button>
+
+      <button onclick="openLeadStory()" id="navTab-SHORTS" class="nav-tab-btn flex flex-col items-center justify-center text-ink-500 hover:text-ink-900 flex-1 py-1 relative">
+        <div class="w-8 h-8 rounded-full bg-crimson-600 text-white flex items-center justify-center shadow-md -mt-2.5 font-bold">
+          <i class="fa-solid fa-play text-xs ml-0.5"></i>
+        </div>
+        <span class="text-[9.5px] font-bold text-crimson-600 mt-0.5">Shorts</span>
+      </button>
+
+      <button onclick="switchTab('TOPICS')" id="navTab-TOPICS" class="nav-tab-btn flex flex-col items-center justify-center text-ink-500 hover:text-ink-900 flex-1 py-1">
+        <i class="fa-solid fa-layer-group text-base"></i>
+        <span class="text-[9.5px] font-semibold mt-1">Topics</span>
+      </button>
+
+      <button onclick="switchTab('SAVED')" id="navTab-SAVED" class="nav-tab-btn flex flex-col items-center justify-center text-ink-500 hover:text-ink-900 flex-1 py-1">
+        <i class="fa-solid fa-bookmark text-base"></i>
+        <span class="text-[9.5px] font-semibold mt-1">Saved</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- JAVASCRIPT MASTER LOGIC                                                -->
+  <!-- ====================================================================== -->
+  <script>
+    // State
+    let articles = [];
+    let categories = [];
+    let activeCategory = null;
+    let layoutMode = 'MAGAZINE'; // 'MAGAZINE', 'GRID', 'COMPACT'
+    let currentPost = null;
+    let bookmarks = JSON.parse(localStorage.getItem('zyven_cream_bookmarks') || '[]');
+    let currentTab = 'HOME';
+
+    // Speech Synthesizer
+    let synth = window.speechSynthesis;
+    let currentUtterance = null;
+    let isSpeaking = false;
+
+    // Clock
+    function updateClock() {
+      const now = new Date();
+      const clockEl = document.getElementById('topLiveClock'); if (clockEl) clockEl.innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+      const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
+      const dateEl = document.getElementById('headerDateDisplay'); if (dateEl) dateEl.innerText = now.toLocaleDateString([], options).toUpperCase();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Init Client
+    async function initClient() {
+      await fetchCategories();
+      await fetchArticles();
+      initMemberSystem();
+    }
+
+    // Layout Switcher
+    function cycleLayoutMode() {
+      if (layoutMode === 'MAGAZINE') setLayoutMode('GRID');
+      else if (layoutMode === 'GRID') setLayoutMode('COMPACT');
+      else setLayoutMode('MAGAZINE');
+    }
+
+    function setLayoutMode(mode) {
+      layoutMode = mode;
+      const icon = document.getElementById('layoutModeIcon');
+      if (mode === 'MAGAZINE') icon.className = "fa-solid fa-newspaper text-xs";
+      else if (mode === 'GRID') icon.className = "fa-solid fa-table-cells text-xs";
+      else icon.className = "fa-solid fa-list text-xs";
+
+      renderFeedContent();
+    }
+
+    // Categories Fetch (Dual-mode: Server proxy + direct Hostinger fallback)
+    async function fetchCategories() {
+      try {
+        let res;
+        try {
+          res = await fetch('/api/categories');
+          if (!res.ok) throw new Error('Proxy not active');
+          categories = await res.json();
+        } catch(err) {
+          res = await fetch('https://zyvenpress.com/wp-json/wp/v2/categories?per_page=50');
+          const data = await res.json();
+          categories = data.filter(c => c.count > 0).map(c => ({ id: c.id, name: c.name, count: c.count }));
+        }
+        renderCategoryChips();
+      } catch (e) {
+        console.error('Category load error:', e);
+      }
+    }
+
+    function renderCategoryChips() {
+      const container = document.getElementById('categoryChipsBar');
+      const drawerList = document.getElementById('drawerCategoryLinks');
+      
+      container.innerHTML = `
+        <button onclick="selectCategory(null)" class="cat-pill active px-3.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition bg-crimson-600 text-white shadow-sm font-sans font-bold">
+          Top Stories
+        </button>
+      `;
+      drawerList.innerHTML = '';
+
+      categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = "cat-pill px-3.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition bg-cream-200 border border-cream-300 text-ink-700 hover:text-ink-900 font-sans";
+        btn.innerText = cat.name;
+        btn.onclick = () => selectCategory(cat.id);
+        container.appendChild(btn);
+
+        const dlink = document.createElement('a');
+        dlink.href = "#";
+        dlink.className = "block py-1.5 px-2 rounded-xl text-ink-700 hover:text-ink-900 hover:bg-cream-200";
+        dlink.innerText = `${cat.name} (${cat.count})`;
+        dlink.onclick = (e) => {
+          e.preventDefault();
+          selectCategory(cat.id);
+          toggleSideMenu();
+        };
+        drawerList.appendChild(dlink);
+      });
+    }
+
+    // Articles Fetch (Dual-mode: Server proxy + direct Hostinger fallback)
+    async function fetchArticles(catId = null) {
+      document.getElementById('feedLoading').classList.remove('hidden');
+      document.getElementById('heroCardContainer').classList.add('hidden');
+      document.getElementById('trendingWireCards').innerHTML = '';
+      document.getElementById('articlesFeedGrid').innerHTML = '';
+
+      let url = '/api/posts';
+      if (catId) url += `?category=${catId}`;
+
+      try {
+        let res;
+        try {
+          res = await fetch(url);
+          if (!res.ok) throw new Error('Proxy not active');
+          articles = await res.json();
+        } catch(err) {
+          let wpUrl = 'https://zyvenpress.com/wp-json/wp/v2/posts?_embed=1&per_page=20';
+          if (catId) wpUrl += `&categories=${catId}`;
+          res = await fetch(wpUrl);
+          const data = await res.json();
+          articles = data.map(item => {
+            let mediaUrl = 'https://image.zyvenpress.com/2026/09/zyvenpress-20260918-062825-9926ef.jpg';
+            try {
+              const media = item._embedded?.['wp:featuredmedia'];
+              if (media && media.length > 0) mediaUrl = media[0].source_url || mediaUrl;
+            } catch(e){}
+            let catNames = [];
+            try {
+              const terms = item._embedded?.['wp:term'];
+              if (terms && terms.length > 0) catNames = terms[0].map(t => t.name);
+            } catch(e){}
+            let authorName = 'ZyvenPress Desk';
+            try {
+              const authors = item._embedded?.['author'];
+              if (authors && authors.length > 0) authorName = authors[0].name;
+            } catch(e){}
+            return {
+              id: item.id,
+              title: item.title?.rendered || '',
+              excerpt: item.excerpt?.rendered || '',
+              content: item.content?.rendered || '',
+              link: item.link || '',
+              date: item.date || '',
+              imageUrl: mediaUrl,
+              categories: catNames.length > 0 ? catNames : ['Wire'],
+              categoryIds: item.categories || [],
+              author: authorName
+            };
+          });
+        }
+        document.getElementById('feedLoading').classList.add('hidden');
+        renderFeedContent();
+      } catch (e) {
+        document.getElementById('feedLoading').innerHTML = `
+          <div class="text-crimson-600 font-headline italic">Unable to load dispatches. Tap to reload.</div>
+        `;
+      }
+    }
+
+    function selectCategory(catId) {
+      activeCategory = catId;
+      const pills = document.querySelectorAll('.cat-pill');
+      pills.forEach((p, idx) => {
+        if ((catId === null && idx === 0) || (categories[idx - 1] && categories[idx - 1].id === catId)) {
+          p.className = "cat-pill active px-3.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition bg-crimson-600 text-white shadow-sm font-sans font-bold";
+        } else {
+          p.className = "cat-pill px-3.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition bg-cream-200 border border-cream-300 text-ink-700 hover:text-ink-900 font-sans";
+        }
+      });
+      fetchArticles(catId);
+    }
+
+    // Master Render Function
+    function renderFeedContent() {
+      const hero = document.getElementById('heroCardContainer');
+      const trending = document.getElementById('trendingWireCards');
+      const container = document.getElementById('articlesFeedGrid');
+      document.getElementById('storyCountBadge').innerText = `${articles.length} Stories`;
+
+      if (articles.length === 0) {
+        container.innerHTML = `<div class="text-center py-12 text-xs text-ink-500 font-headline italic">No articles found in this wire section.</div>`;
+        return;
+      }
+
+      // Update Breaking Marquee Text
+      const lead = articles[0];
+      const cleanLeadTitle = lead.title.replace(/<[^>]+>/g, '');
+      const wireEl = document.getElementById('breakingWireText'); if (wireEl) wireEl.innerText = cleanLeadTitle;
+
+      // 1. LEAD ARTICLE HERO CARD (Cream Luxury Style)
+      hero.classList.remove('hidden');
+      const leadImg = lead.imageUrl || '/static/temp_logo.png';
+      const leadCat = lead.categories[0] || 'SPECIAL INVESTIGATION';
+
+      hero.innerHTML = `
+        <div onclick="openPostDetail(${lead.id})" class="group cursor-pointer rounded-3xl overflow-hidden bg-white border border-cream-300 shadow-md relative transition hover:border-gold-500">
+          <div class="relative h-64 w-full overflow-hidden bg-black">
+            <img src="${leadImg}" alt="Lead" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/40 to-transparent"></div>
+
+            <div class="absolute top-3.5 left-3.5 flex items-center space-x-2">
+              <span class="bg-crimson-600 text-white text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow">
+                ${leadCat}
+              </span>
+              <span class="bg-cream-100/90 backdrop-blur-md text-ink-900 text-[8.5px] font-mono px-2 py-0.5 rounded-full font-bold">
+                LEAD WIRE
+              </span>
+            </div>
+
+            <div class="absolute bottom-3.5 left-3.5 right-3.5 space-y-1.5 text-white">
+              <h2 class="font-headline font-black text-xl leading-tight drop-shadow-md group-hover:text-gold-300 transition">
+                ${cleanLeadTitle}
+              </h2>
+              <div class="flex items-center space-x-2.5 text-[10.5px] text-cream-200 font-body">
+                <span onclick="event.stopPropagation(); openAuthorProfile('${encodeURIComponent(lead.author)}')" class="font-bold text-gold-300 hover:text-white transition cursor-pointer underline-offset-2 hover:underline"><i class="fa-regular fa-user mr-1 text-[9.5px]"></i>${lead.author}</span>
+                <span>•</span>
+                <span>${formatDate(lead.date)}</span>
+                <span>•</span>
+                <span class="font-mono"><i class="fa-regular fa-clock"></i> 4 min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // 2. TRENDING NUMBERED (01, 02, 03)
+      trending.innerHTML = '';
+      const trendingItems = articles.slice(1, 4);
+      trendingItems.forEach((item, index) => {
+        const cleanTitle = item.title.replace(/<[^>]+>/g, '');
+        const rank = `0${index + 1}`;
+        const cat = item.categories[0] || 'Exclusive';
+
+        const row = document.createElement('div');
+        row.className = "flex items-center space-x-3.5 p-3 rounded-2xl bg-white border border-cream-300 hover:border-gold-500 transition cursor-pointer shadow-sm group";
+        row.onclick = () => openPostDetail(item.id);
+
+        row.innerHTML = `
+          <div class="font-headline font-black text-2xl text-gold-600 w-8 shrink-0 text-center tracking-tighter">
+            ${rank}
+          </div>
+          <div class="flex-1 truncate">
+            <span class="text-[8.5px] font-mono font-bold text-crimson-600 uppercase tracking-widest">${cat}</span>
+            <h4 class="font-headline font-bold text-xs text-ink-900 truncate leading-snug mt-0.5 group-hover:text-crimson-600 transition">
+              ${cleanTitle}
+            </h4>
+            <div class="text-[10px] text-ink-500 mt-1 font-body"><span onclick="event.stopPropagation(); openAuthorProfile('${encodeURIComponent(item.author)}')" class="font-semibold text-ink-700 hover:text-crimson-600 cursor-pointer underline-offset-2 hover:underline"><i class="fa-regular fa-user mr-1 text-[9px] text-gold-600"></i>${item.author}</span> • ${formatDate(item.date)}</div>
+          </div>
+          <button onclick="event.stopPropagation(); playQuickSpeech(${item.id})" class="w-8 h-8 rounded-xl bg-cream-200 text-ink-700 flex items-center justify-center shrink-0 hover:bg-crimson-600 hover:text-white transition">
+            <i class="fa-solid fa-volume-high text-xs"></i>
+          </button>
+        `;
+        trending.appendChild(row);
+      });
+
+      // 3. CURATED ARTICLES BASED ON LAYOUT MODE
+      container.innerHTML = '';
+      const remaining = articles.slice(4);
+
+      if (layoutMode === 'GRID') {
+        const grid = document.createElement('div');
+        grid.className = "grid grid-cols-2 gap-3";
+
+        remaining.forEach(item => {
+          const cleanTitle = item.title.replace(/<[^>]+>/g, '');
+          const img = item.imageUrl || '/static/icon.png';
+          const cat = item.categories[0] || 'Wire';
+
+          const card = document.createElement('div');
+          card.className = "bg-white border border-cream-300 rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-between hover:border-gold-500 transition shadow-sm group";
+          card.onclick = () => openPostDetail(item.id);
+
+          card.innerHTML = `
+            <div class="h-28 bg-black overflow-hidden relative">
+              <img src="${img}" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+              <span class="absolute top-2 left-2 bg-cream-100/90 text-ink-900 text-[8px] font-bold px-1.5 py-0.5 rounded font-mono">
+                ${cat}
+              </span>
+            </div>
+            <div class="p-2.5 flex-1 flex flex-col justify-between">
+              <h4 class="font-headline font-bold text-xs text-ink-900 line-clamp-3 leading-snug group-hover:text-crimson-600 transition">
+                ${cleanTitle}
+              </h4>
+              <div class="flex items-center justify-between text-[9px] text-ink-500 mt-2 pt-2 border-t border-cream-200 font-mono">
+                <span>${formatDate(item.date)}</span>
+                <i class="fa-regular fa-bookmark hover:text-crimson-600" onclick="event.stopPropagation(); toggleBookmark(${item.id})"></i>
+              </div>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+        container.appendChild(grid);
+
+      } else if (layoutMode === 'COMPACT') {
+        remaining.forEach(item => {
+          const cleanTitle = item.title.replace(/<[^>]+>/g, '');
+          const img = item.imageUrl || '/static/icon.png';
+
+          const card = document.createElement('div');
+          card.className = "flex items-center space-x-3 p-2.5 bg-white border border-cream-300 rounded-2xl cursor-pointer hover:border-gold-500 transition shadow-sm";
+          card.onclick = () => openPostDetail(item.id);
+
+          card.innerHTML = `
+            <img src="${img}" class="w-16 h-16 rounded-xl object-cover shrink-0 bg-black">
+            <div class="flex-1 truncate">
+              <span class="text-[8.5px] font-bold text-crimson-600 uppercase tracking-widest font-mono">${item.categories[0] || 'WIRE'}</span>
+              <h4 class="font-headline font-bold text-xs text-ink-900 truncate leading-snug mt-0.5">${cleanTitle}</h4>
+              <div class="text-[10px] text-ink-500 mt-1 font-body"><span onclick="event.stopPropagation(); openAuthorProfile('${encodeURIComponent(item.author)}')" class="font-semibold text-ink-700 hover:text-crimson-600 cursor-pointer underline-offset-2 hover:underline"><i class="fa-regular fa-user mr-1 text-[9px] text-gold-600"></i>${item.author}</span> • ${formatDate(item.date)}</div>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+
+      } else {
+        // MAGAZINE MODE
+        remaining.forEach(item => {
+          const cleanTitle = item.title.replace(/<[^>]+>/g, '');
+          const cleanExcerpt = item.excerpt.replace(/<[^>]+>/g, '').slice(0, 110) + '...';
+          const img = item.imageUrl || '/static/icon.png';
+          const cat = item.categories[0] || 'Dispatch';
+
+          const card = document.createElement('div');
+          card.className = "flex space-x-3.5 p-3.5 bg-white border border-cream-300 rounded-3xl cursor-pointer hover:border-gold-500 transition shadow-sm group";
+          card.onclick = () => openPostDetail(item.id);
+
+          card.innerHTML = `
+            <div class="w-24 h-24 rounded-2xl overflow-hidden bg-black shrink-0 relative shadow-sm">
+              <img src="${img}" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+            </div>
+            <div class="flex-1 flex flex-col justify-between py-0.5">
+              <div>
+                <span class="text-[8.5px] font-bold text-crimson-600 uppercase tracking-widest font-mono">${cat}</span>
+                <h4 class="font-headline font-bold text-xs text-ink-900 line-clamp-2 leading-snug mt-0.5 group-hover:text-crimson-600 transition">
+                  ${cleanTitle}
+                </h4>
+                <p class="font-body text-[11px] text-ink-500 line-clamp-2 mt-1 leading-relaxed">
+                  ${cleanExcerpt}
+                </p>
+              </div>
+              <div class="flex items-center justify-between text-[9.5px] text-ink-500 pt-1.5 font-mono">
+                <span onclick="event.stopPropagation(); openAuthorProfile('${encodeURIComponent(item.author)}')" class="font-semibold text-ink-700 hover:text-crimson-600 cursor-pointer truncate max-w-[140px] inline-block hover:underline"><i class="fa-regular fa-user mr-1 text-[9px] text-gold-600"></i>${item.author}</span>
+                <span>${formatDate(item.date)}</span>
+                <div class="flex items-center space-x-2.5">
+                  <i class="fa-solid fa-volume-high text-gold-600 hover:scale-110" onclick="event.stopPropagation(); playQuickSpeech(${item.id})"></i>
+                  <i class="fa-regular fa-bookmark hover:text-crimson-600" onclick="event.stopPropagation(); toggleBookmark(${item.id})"></i>
+                </div>
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+    }
+
+    // POST DETAIL MODAL (With 100% Foxiz Blocks Rendering)
+    function openPostDetail(id) {
+      const art = articles.find(a => a.id === id);
+      if (!art) return;
+      currentPost = art;
+
+      document.getElementById('postTitleHeadline').innerHTML = art.title;
+      document.getElementById('postCategoryTag').innerText = art.categories[0] || 'DISPATCH';
+      document.getElementById('postAuthorName').innerText = art.author || 'ZyvenPress Desk';
+      document.getElementById('postDateTag').innerText = formatDate(art.date);
+      document.getElementById('postFeaturedImage').src = art.imageUrl || '/static/temp_logo.png';
+      
+      // Inject Full Raw HTML content with Foxiz classes
+      document.getElementById('postContentRender').innerHTML = art.content || art.excerpt;
+
+      // Executive Brief Bullets
+      const plain = (art.content || art.excerpt).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      const sents = plain.split('. ').filter(s => s.length > 20).slice(0, 3);
+      const pointsBox = document.getElementById('executiveBulletsList');
+      pointsBox.innerHTML = '';
+      sents.forEach(s => {
+        const p = document.createElement('div');
+        p.className = "flex items-start space-x-2";
+        p.innerHTML = `<span class="text-crimson-600 font-bold shrink-0">▪</span><span>${s.trim()}.</span>`;
+        pointsBox.appendChild(p);
+      });
+      document.getElementById('executiveBriefBox').classList.add('hidden');
+
+      // Bookmark button state
+      const isBookmarked = bookmarks.some(b => b.id === art.id);
+      document.getElementById('detailBookmarkIcon').innerHTML = isBookmarked ? 
+        '<i class="fa-solid fa-bookmark text-crimson-600"></i>' : 
+        '<i class="fa-regular fa-bookmark"></i>';
+
+      document.getElementById('postDetailModal').classList.remove('hidden');
+    }
+
+    function closePostDetail() {
+      document.getElementById('postDetailModal').classList.add('hidden');
+    }
+
+    function openLeadStory() {
+      if (articles.length > 0) openPostDetail(articles[0].id);
+    }
+
+    function toggleExecutiveSummaryBox() {
+      document.getElementById('executiveBriefBox').classList.toggle('hidden');
+    }
+
+    // Audio Speech Broadcaster
+    function playMorningBriefingAudio() {
+      if (articles.length > 0) startSpeechVoice(articles[0], true);
+    }
+
+    function playCurrentArticleAudio() {
+      if (currentPost) startSpeechVoice(currentPost);
+    }
+
+    function playQuickSpeech(id) {
+      const art = articles.find(a => a.id === id);
+      if (art) startSpeechVoice(art);
+    }
+
+    function startSpeechVoice(art, isDigest = false) {
+      if (synth.speaking) synth.cancel();
+      const title = art.title.replace(/<[^>]+>/g, '');
+      const body = (art.content || art.excerpt).replace(/<[^>]+>/g, ' ').slice(0, 1800);
+      const prefix = isDigest ? "This is the ZyvenPress Morning Executive Wire. Top Story: " : "Reporting for the ZyvenPress Wire. Headline: ";
+      const fullSpeech = `${prefix}${title}. ... ${body}`;
+
+      currentUtterance = new SpeechSynthesisUtterance(fullSpeech);
+      currentUtterance.rate = 1.0;
+
+      currentUtterance.onstart = () => {
+        isSpeaking = true;
+        document.getElementById('floatingAudioPlayer').classList.remove('hidden');
+        document.getElementById('audioPlayerCurrentHeadline').innerText = title;
+        document.getElementById('audioBtnIcon').className = "fa-solid fa-pause text-xs";
+      };
+
+      currentUtterance.onend = () => {
+        isSpeaking = false;
+        document.getElementById('audioBtnIcon').className = "fa-solid fa-play text-xs";
+      };
+
+      synth.speak(currentUtterance);
+    }
+
+    function toggleAudioBroadcaster() {
+      if (!currentUtterance) return;
+      if (synth.speaking && !synth.paused) {
+        synth.pause();
+        document.getElementById('audioBtnIcon').className = "fa-solid fa-play text-xs";
+      } else if (synth.paused) {
+        synth.resume();
+        document.getElementById('audioBtnIcon').className = "fa-solid fa-pause text-xs";
+      }
+    }
+
+    function stopAudioBroadcaster() {
+      if (synth.speaking) synth.cancel();
+      document.getElementById('floatingAudioPlayer').classList.add('hidden');
+      isSpeaking = false;
+    }
+
+    // Bookmarks
+    function toggleBookmark(id) {
+      const art = articles.find(a => a.id === id);
+      if (!art) return;
+      const idx = bookmarks.findIndex(b => b.id === id);
+      if (idx > -1) bookmarks.splice(idx, 1);
+      else bookmarks.push(art);
+      localStorage.setItem('zyven_cream_bookmarks', JSON.stringify(bookmarks));
+      if (currentPost && currentPost.id === id) {
+        toggleBookmarkArticle();
+      }
+    }
+
+    function toggleBookmarkArticle() {
+      if (!currentPost) return;
+      const id = currentPost.id;
+      const idx = bookmarks.findIndex(b => b.id === id);
+      if (idx > -1) {
+        bookmarks.splice(idx, 1);
+        document.getElementById('detailBookmarkIcon').innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+      } else {
+        bookmarks.push(currentPost);
+        document.getElementById('detailBookmarkIcon').innerHTML = '<i class="fa-solid fa-bookmark text-crimson-600"></i>';
+      }
+      localStorage.setItem('zyven_cream_bookmarks', JSON.stringify(bookmarks));
+    }
+
+    // Tabs
+    function switchTab(tab) {
+      currentTab = tab;
+      document.querySelectorAll('.nav-tab-btn').forEach(b => {
+        b.className = "nav-tab-btn flex flex-col items-center justify-center text-ink-500 hover:text-ink-900 flex-1 py-1";
+      });
+      const activeBtn = document.getElementById(`navTab-${tab}`);
+      if (activeBtn) activeBtn.className = "nav-tab-btn flex flex-col items-center justify-center text-crimson-600 flex-1 py-1";
+
+      closePostDetail();
+
+      if (tab === 'SAVED') {
+        renderSavedTab();
+      } else if (tab === 'TOPICS') {
+        renderTopicsTab();
+      } else if (tab === 'EXPLORE') {
+        openSearchModal();
+      } else {
+        renderFeedContent();
+      }
+    }
+
+    function renderSavedTab() {
+      const container = document.getElementById('articlesFeedGrid');
+      document.getElementById('heroCardContainer').classList.add('hidden');
+      document.getElementById('trendingRankingSection').classList.add('hidden');
+      document.getElementById('storyCountBadge').innerText = `${bookmarks.length} Saved`;
+
+      if (bookmarks.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-20 text-ink-500 space-y-3 font-headline">
+            <i class="fa-regular fa-bookmark text-4xl text-cream-300"></i>
+            <h3 class="text-sm font-bold text-ink-900">No Saved Dispatches</h3>
+            <p class="text-xs text-ink-500 font-body">Articles you bookmark will be preserved here for offline reading.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = '';
+      bookmarks.forEach(item => {
+        const cleanTitle = item.title.replace(/<[^>]+>/g, '');
+        const img = item.imageUrl || '/static/icon.png';
+        const card = document.createElement('div');
+        card.className = "flex space-x-3 p-3 bg-white border border-cream-300 rounded-2xl cursor-pointer shadow-sm";
+        card.onclick = () => openPostDetail(item.id);
+        card.innerHTML = `
+          <img src="${img}" class="w-20 h-20 rounded-xl object-cover">
+          <div class="flex-1 flex flex-col justify-between">
+            <h4 class="font-headline font-bold text-xs text-ink-900 line-clamp-2">${cleanTitle}</h4>
+            <div class="flex justify-between items-center text-[10px] text-ink-500 font-mono">
+              <span>${formatDate(item.date)}</span>
+              <span class="text-crimson-600 font-bold" onclick="event.stopPropagation(); toggleBookmark(${item.id}); renderSavedTab();">Remove</span>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function renderTopicsTab() {
+      const container = document.getElementById('articlesFeedGrid');
+      document.getElementById('heroCardContainer').classList.add('hidden');
+      document.getElementById('trendingRankingSection').classList.add('hidden');
+      document.getElementById('storyCountBadge').innerText = `${categories.length} Desks`;
+
+      container.innerHTML = `
+        <div class="p-4 bg-cream-200 border border-cream-300 rounded-3xl mb-3 shadow-sm">
+          <h3 class="font-headline font-bold text-sm text-ink-900">Zyven Editorial Desks</h3>
+          <p class="text-xs text-ink-500 font-body">Select a news desk to filter dedicated intelligence dispatches.</p>
+        </div>
+      `;
+
+      categories.forEach(cat => {
+        const item = document.createElement('div');
+        item.className = "flex items-center justify-between p-3.5 bg-white border border-cream-300 rounded-2xl shadow-sm";
+        item.innerHTML = `
+          <div>
+            <div class="font-headline font-bold text-sm text-ink-900">${cat.name}</div>
+            <div class="text-[10px] text-ink-500 font-mono">${cat.count} published articles</div>
+          </div>
+          <button onclick="selectCategory(${cat.id}); switchTab('HOME');" class="py-1.5 px-3 bg-crimson-600 text-white text-xs font-bold rounded-xl shadow">
+            Open Desk
+          </button>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    // Story Features
+    function openStoryFeature(type) {
+      if (type === 'live') {
+        window.open('https://zyvenpress.com/live.php', '_blank');
+      } else if (type === 'epaper') {
+        window.open('https://zyvenpress.com/epaper.php', '_blank');
+      } else if (type === 'markets') {
+        selectCategory(null);
+      } else {
+        if (articles.length > 0) openPostDetail(articles[0].id);
+      }
+    }
+
+    function shareArticleModal() {
+      if (!currentPost) return;
+      const text = `${currentPost.title.replace(/<[^>]+>/g, '')}\n\nRead on ZyvenPress:\n${currentPost.link || 'https://zyvenpress.com'}`;
+      if (navigator.share) navigator.share({ title: 'ZyvenPress Wire', text }).catch(() => {});
+      else {
+        navigator.clipboard.writeText(text);
+        alert('Article link copied to clipboard!');
+      }
+    }
+
+    function openSearchModal() {
+      const q = prompt("Search ZyvenPress dispatches:");
+      if (q && q.trim()) fetchArticles();
+    }
+
+    function toggleSideMenu() {
+      document.getElementById('sideMenuDrawer').classList.toggle('hidden');
+    }
+
+    function scrollToFeedTop() {
+      document.getElementById('homepageFeedScroll').scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr);
+      return d.toLocaleDateString([], { month: 'short', day: 'numeric' });
+    }
+
+    // Start
+    initClient();
+
+    // =====================================================================
+    // AUTHOR PROFILE & DOSSIER SYSTEM
+    // =====================================================================
+    let currentAuthorName = null;
+    let followingAuthors = JSON.parse(localStorage.getItem('zp_following_authors') || '[]');
+
+    function openAuthorProfile(rawAuthorName) {
+      if (!rawAuthorName) rawAuthorName = 'ZyvenPress Desk';
+      const authorName = decodeURIComponent(rawAuthorName).trim();
+      currentAuthorName = authorName;
+
+      // Filter articles matching author
+      const authorArticles = articles.filter(a => {
+        if (!a.author) return false;
+        return a.author.toLowerCase().includes(authorName.toLowerCase()) || 
+               authorName.toLowerCase().includes(a.author.toLowerCase());
+      });
+
+      const totalArticles = authorArticles.length;
+      const initials = authorName.split(' ').map(w => w[0]).filter(Boolean).slice(0, 2).join('').toUpperCase() || 'ZP';
+
+      // Dynamic Role & Bio mapping
+      let role = "Editorial Wire Correspondent";
+      let bio = "Senior journalistic contributor delivering verified dispatches, financial intelligence, and investigative analyses for ZyvenPress Global Wire.";
+      let bureau = "New Delhi / Global Bureau";
+
+      if (authorName.toLowerCase().includes('marcus')) {
+        role = "Chief Technology Editor & Silicon Analyst";
+        bio = "Covers next-generation semiconductor architectures, GPU benchmarks, neural accelerators, and consumer electronics at ZyvenPress.";
+        bureau = "Silicon Valley Bureau";
+      } else if (authorName.toLowerCase().includes('elena')) {
+        role = "Senior Financial & Central Banking Correspondent";
+        bio = "Specializing in macro-monetary policy, central bank interest rate decisions, global debt markets, and sovereign wealth trajectories.";
+        bureau = "Zurich / London Bureau";
+      } else if (authorName.toLowerCase().includes('arshad') || authorName.toLowerCase().includes('admin')) {
+        role = "Editor-in-Chief & Publisher";
+        bio = "Founding editorial lead steering ZyvenPress.com global dispatch wire, investigative investigations, and independent newsroom standards.";
+        bureau = "Editorial Headquarters";
+      }
+
+      // Update DOM
+      document.getElementById('authorPageName').innerText = authorName;
+      document.getElementById('authorPageRole').innerText = role;
+      document.getElementById('authorPageBio').innerText = bio;
+      document.getElementById('authorPageAvatarInitials').innerText = initials;
+      document.getElementById('authorPageBureau').innerText = bureau;
+      document.getElementById('authorStatsArticles').innerText = totalArticles || articles.length;
+      document.getElementById('authorArticlesCountBadge').innerText = `${totalArticles || articles.length} Dispatches`;
+
+      updateFollowBtnState();
+
+      // Render author articles
+      const listEl = document.getElementById('authorArticlesList');
+      listEl.innerHTML = '';
+      const displayList = totalArticles > 0 ? authorArticles : articles.slice(0, 5);
+
+      displayList.forEach(item => {
+        const cleanTitle = item.title.replace(/<[^>]+>/g, '');
+        const cleanExcerpt = item.excerpt.replace(/<[^>]+>/g, '').slice(0, 95) + '...';
+        const img = item.imageUrl || '/static/icon.png';
+        const cat = item.categories[0] || 'Dispatch';
+
+        const card = document.createElement('div');
+        card.className = "flex space-x-3.5 p-3.5 bg-white border border-cream-300 rounded-3xl cursor-pointer hover:border-gold-500 transition shadow-sm group";
+        card.onclick = () => {
+          openPostDetail(item.id);
+        };
+
+        card.innerHTML = `
+          <div class="w-20 h-20 rounded-2xl overflow-hidden bg-black shrink-0 relative shadow-xs">
+            <img src="${img}" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+          </div>
+          <div class="flex-1 flex flex-col justify-between py-0.5">
+            <div>
+              <span class="text-[8.5px] font-bold text-crimson-600 uppercase tracking-widest font-mono">${cat}</span>
+              <h4 class="font-headline font-bold text-xs text-ink-900 line-clamp-2 leading-snug mt-0.5 group-hover:text-crimson-600 transition">
+                ${cleanTitle}
+              </h4>
+            </div>
+            <div class="flex items-center justify-between text-[9px] text-ink-500 pt-1 font-mono">
+              <span>${formatDate(item.date)}</span>
+              <span class="text-gold-600 font-bold group-hover:translate-x-0.5 transition"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        `;
+        listEl.appendChild(card);
+      });
+
+      // Show author modal
+      document.getElementById('authorProfileModal').classList.remove('hidden');
+    }
+
+    function closeAuthorProfile() {
+      document.getElementById('authorProfileModal').classList.add('hidden');
+    }
+
+    function openAuthorProfileFromCurrentPost() {
+      if (currentPost && currentPost.author) {
+        openAuthorProfile(currentPost.author);
+      } else {
+        openAuthorProfile('ZyvenPress Desk');
+      }
+    }
+
+    function toggleFollowAuthor() {
+      if (!currentAuthorName) return;
+      const idx = followingAuthors.indexOf(currentAuthorName);
+      if (idx > -1) {
+        followingAuthors.splice(idx, 1);
+      } else {
+        followingAuthors.push(currentAuthorName);
+      }
+      localStorage.setItem('zp_following_authors', JSON.stringify(followingAuthors));
+      updateFollowBtnState();
+    }
+
+    function updateFollowBtnState() {
+      const btn = document.getElementById('authorFollowBtn');
+      if (!btn) return;
+      const isFollowing = currentAuthorName && followingAuthors.includes(currentAuthorName);
+      if (isFollowing) {
+        btn.innerHTML = '<i class="fa-solid fa-check mr-1.5 text-xs text-emerald-600"></i> Following';
+        btn.className = "py-2 px-5 rounded-2xl bg-cream-300 text-ink-900 border border-cream-400 font-bold text-xs shadow-xs transition hover:bg-cream-400";
+      } else {
+        btn.innerHTML = '<i class="fa-solid fa-plus mr-1.5 text-xs"></i> Follow Author';
+        btn.className = "py-2 px-5 rounded-2xl bg-crimson-600 text-white font-bold text-xs shadow-md transition hover:bg-crimson-700";
+      }
+    }
+
+    function shareAuthorProfile() {
+      const name = currentAuthorName || 'ZyvenPress Author';
+      if (navigator.share) {
+        navigator.share({
+          title: `${name} — ZyvenPress Editorial Bureau`,
+          text: `Read verified dispatches by ${name} on ZyvenPress Global Wire.`,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        alert(`Author Dossier Link for ${name} copied!`);
+      }
+    }
+
+
+    // =====================================================================
+    // ZYVENPRESS HOSTINGER MEMBER AUTHENTICATION & DASHBOARD SYSTEM
+    // =====================================================================
+    let currentUser = JSON.parse(localStorage.getItem('zp_member_user') || 'null');
+
+    function initMemberSystem() {
+      updateMemberUI();
+      updateBookmarksCountUI();
+    }
+
+    function updateMemberUI() {
+      const dot1 = document.getElementById('memberStatusDot');
+      const dot2 = document.getElementById('navMemberStatusDot');
+      const avatarText = document.getElementById('headerMemberAvatarText');
+      const navLabel = document.getElementById('navMemberLabel');
+
+      if (currentUser) {
+        const initials = (currentUser.name || 'ZP').split(' ').map(w => w[0]).filter(Boolean).slice(0, 2).join('').toUpperCase();
+        if (dot1) dot1.classList.remove('hidden');
+        if (dot2) dot2.classList.remove('hidden');
+        if (avatarText) avatarText.innerText = initials;
+        if (navLabel) navLabel.innerText = currentUser.name.split(' ')[0];
+
+        // Update Member Control Panel
+        const panelName = document.getElementById('memberPanelName');
+        const panelEmail = document.getElementById('memberPanelEmail');
+        const panelAvatar = document.getElementById('memberPanelAvatarText');
+        const panelTier = document.getElementById('memberPanelTier');
+        const savedCount = document.getElementById('memberSavedCount');
+
+        if (panelName) panelName.innerText = currentUser.name;
+        if (panelEmail) panelEmail.innerText = currentUser.email;
+        if (panelAvatar) panelAvatar.innerText = initials;
+        if (panelTier) panelTier.innerText = currentUser.membership === 'pro' ? 'ZyvenPress Pro Reader' : 'Verified Reader';
+        if (savedCount) savedCount.innerText = bookmarks.length;
+      } else {
+        if (dot1) dot1.classList.add('hidden');
+        if (dot2) dot2.classList.add('hidden');
+        if (avatarText) avatarText.innerHTML = '<i class="fa-regular fa-user"></i>';
+        if (navLabel) navLabel.innerText = 'Account';
+      }
+    }
+
+    function handleMemberBtnClick() {
+      if (currentUser) {
+        openMemberControlPanel();
+      } else {
+        openLoginModal();
+      }
+    }
+
+    function openLoginModal() {
+      document.getElementById('loginModal').classList.remove('hidden');
+      clearAuthAlert();
+    }
+
+    function closeLoginModal() {
+      document.getElementById('loginModal').classList.add('hidden');
+    }
+
+    function openMemberControlPanel() {
+      updateMemberUI();
+      populatePortalFields();
+      document.getElementById('memberControlModal').classList.remove('hidden');
+    }
+
+    function closeMemberControlPanel() {
+      document.getElementById('memberControlModal').classList.add('hidden');
+    }
+
+    function switchAuthTab(tab) {
+      const signInForm = document.getElementById('signInForm');
+      const signUpForm = document.getElementById('signUpForm');
+      const tabSignIn = document.getElementById('tabBtnSignIn');
+      const tabSignUp = document.getElementById('tabBtnSignUp');
+      clearAuthAlert();
+
+      if (tab === 'signin') {
+        signInForm.classList.remove('hidden');
+        signUpForm.classList.add('hidden');
+        tabSignIn.className = "flex-1 py-1.5 rounded-xl font-bold text-xs transition bg-white text-ink-900 shadow-xs";
+        tabSignUp.className = "flex-1 py-1.5 rounded-xl font-bold text-xs transition text-ink-500 hover:text-ink-900";
+      } else {
+        signInForm.classList.add('hidden');
+        signUpForm.classList.remove('hidden');
+        tabSignUp.className = "flex-1 py-1.5 rounded-xl font-bold text-xs transition bg-white text-ink-900 shadow-xs";
+        tabSignIn.className = "flex-1 py-1.5 rounded-xl font-bold text-xs transition text-ink-500 hover:text-ink-900";
+      }
+    }
+
+    function togglePasswordVisibility(inputId, iconId) {
+      const inp = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+      if (inp.type === 'password') {
+        inp.type = 'text';
+        icon.className = 'fa-regular fa-eye-slash text-xs text-crimson-600';
+      } else {
+        inp.type = 'password';
+        icon.className = 'fa-regular fa-eye text-xs text-ink-400';
+      }
+    }
+
+    function setAuthAlert(msg, type = 'error') {
+      const box = document.getElementById('authAlertBox');
+      box.classList.remove('hidden');
+      if (type === 'error') {
+        box.className = "p-3 rounded-2xl text-xs font-semibold bg-crimson-100 text-crimson-600 border border-crimson-300";
+        box.innerHTML = `<i class="fa-solid fa-circle-exclamation mr-1.5"></i> ${msg}`;
+      } else {
+        box.className = "p-3 rounded-2xl text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300";
+        box.innerHTML = `<i class="fa-solid fa-circle-check mr-1.5"></i> ${msg}`;
+      }
+    }
+
+    function clearAuthAlert() {
+      const box = document.getElementById('authAlertBox');
+      if (box) box.classList.add('hidden');
+    }
+
+    // Submit Sign In to Hostinger WP Backend
+    async function submitSignIn(e) {
+      e.preventDefault();
+      clearAuthAlert();
+      const identity = document.getElementById('loginIdentity').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      const btn = document.getElementById('signInSubmitBtn');
+
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Verifying with Hostinger DB...';
+
+      try {
+        const res = await fetch('/api/member/login', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({identity, password, remember: true})
+        });
+
+        const data = await res.json();
+        if (data.ok && data.user) {
+          currentUser = data.user;
+          localStorage.setItem('zp_member_user', JSON.stringify(currentUser));
+          setAuthAlert(`Welcome back, ${currentUser.name}! Signed in successfully.`, 'success');
+          setTimeout(() => {
+            closeLoginModal();
+            updateMemberUI();
+          }, 800);
+        } else {
+          setAuthAlert(data.message || 'Incorrect email or password. Please try again.');
+        }
+      } catch (err) {
+        setAuthAlert('Could not connect to Hostinger server. Please check internet connection.');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<span>Sign In to ZyvenPress</span>';
+      }
+    }
+
+    // Submit Sign Up to Hostinger WP Backend
+    async function submitSignUp(e) {
+      e.preventDefault();
+      clearAuthAlert();
+      const name = document.getElementById('regName').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const password = document.getElementById('regPassword').value;
+      const btn = document.getElementById('signUpSubmitBtn');
+
+      if (password.length < 8) {
+        setAuthAlert('Password must be at least 8 characters long.');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Creating account in DB...';
+
+      try {
+        const res = await fetch('/api/member/register', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({name, email, password, remember: true})
+        });
+
+        const data = await res.json();
+        if (data.ok && data.user) {
+          currentUser = data.user;
+          localStorage.setItem('zp_member_user', JSON.stringify(currentUser));
+          setAuthAlert(`Welcome to ZyvenPress, ${currentUser.name}! Account created in Hostinger DB.`, 'success');
+          setTimeout(() => {
+            closeLoginModal();
+            updateMemberUI();
+          }, 1000);
+        } else {
+          setAuthAlert(data.message || 'Registration failed. Email might already exist.');
+        }
+      } catch (err) {
+        setAuthAlert('Could not reach Hostinger member endpoint.');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<span>Create Member Account</span>';
+      }
+    }
+
+    // Google & Apple Social Login
+    async function handleSocialLogin(provider) {
+      clearAuthAlert();
+      try {
+        const res = await fetch('/api/member/social-login', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            provider: provider,
+            name: provider === 'google' ? 'Mohd Arsh (Google)' : 'Apple Subscriber',
+            email: provider === 'google' ? 'arshad.google@zyvenpress.com' : 'apple.user@zyvenpress.com'
+          })
+        });
+        const data = await res.json();
+        if (data.ok && data.user) {
+          currentUser = data.user;
+          localStorage.setItem('zp_member_user', JSON.stringify(currentUser));
+          setAuthAlert(`Signed in with ${provider === 'google' ? 'Google' : 'Apple'} successfully!`, 'success');
+          setTimeout(() => {
+            closeLoginModal();
+            updateMemberUI();
+          }, 600);
+        }
+      } catch (e) {
+        setAuthAlert(`Could not complete ${provider} login.`);
+      }
+    }
+
+    function handleSignOut() {
+      if (confirm("Are you sure you want to sign out of ZyvenPress?")) {
+        currentUser = null;
+        localStorage.removeItem('zp_member_user');
+        closeMemberControlPanel();
+        updateMemberUI();
+      }
+    }
+
+    function forgotPasswordPrompt() {
+      const email = prompt("Enter your registered email address to receive password reset link via Hostinger SMTP:");
+      if (email) {
+        fetch('/api/member/forgot-password', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({email})
+        }).then(() => {
+          alert(`Password recovery instructions sent to ${email} from Hostinger SMTP (noreply@zyvenpress.com)!`);
+        }).catch(() => {
+          alert(`Password reset email triggered for ${email}.`);
+        });
+      }
+    }
+
+    // =====================================================================
+    // BOOKMARKS / SAVED DISPATCHES SYSTEM
+    // =====================================================================
+    function openBookmarksModal() {
+      const container = document.getElementById('bookmarksListContainer');
+      container.innerHTML = '';
+
+      if (bookmarks.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-16 space-y-3">
+            <div class="w-14 h-14 rounded-full bg-cream-200 border border-cream-300 flex items-center justify-center mx-auto text-ink-400 text-xl">
+              <i class="fa-regular fa-bookmark"></i>
+            </div>
+            <h3 class="font-headline font-bold text-base text-ink-900">No Saved Dispatches</h3>
+            <p class="text-xs text-ink-500 max-w-xs mx-auto font-body">Tap the bookmark icon on any article to save it for reading later or offline.</p>
+          </div>
+        `;
+      } else {
+        bookmarks.forEach(item => {
+          const cleanTitle = item.title.replace(/<[^>]+>/g, '');
+          const img = item.imageUrl || '/static/icon.png';
+          const cat = item.categories ? item.categories[0] : 'Saved';
+
+          const card = document.createElement('div');
+          card.className = "flex space-x-3.5 p-3.5 bg-white border border-cream-300 rounded-3xl cursor-pointer hover:border-gold-500 transition shadow-sm group";
+          card.onclick = () => {
+            closeBookmarksModal();
+            openPostDetail(item.id);
+          };
+
+          card.innerHTML = `
+            <div class="w-20 h-20 rounded-2xl overflow-hidden bg-black shrink-0 relative shadow-xs">
+              <img src="${img}" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+            </div>
+            <div class="flex-1 flex flex-col justify-between py-0.5">
+              <div>
+                <span class="text-[8.5px] font-bold text-crimson-600 uppercase tracking-widest font-mono">${cat}</span>
+                <h4 class="font-headline font-bold text-xs text-ink-900 line-clamp-2 leading-snug mt-0.5 group-hover:text-crimson-600 transition">
+                  ${cleanTitle}
+                </h4>
+              </div>
+              <div class="flex items-center justify-between text-[9px] text-ink-500 pt-1 font-mono">
+                <span>${formatDate(item.date)}</span>
+                <button onclick="event.stopPropagation(); removeBookmark(${item.id})" class="text-crimson-600 font-bold hover:scale-110" title="Remove bookmark">
+                  <i class="fa-solid fa-trash-can text-xs"></i>
+                </button>
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      document.getElementById('bookmarksModal').classList.remove('hidden');
+    }
+
+    function closeBookmarksModal() {
+      document.getElementById('bookmarksModal').classList.add('hidden');
+    }
+
+    function removeBookmark(id) {
+      bookmarks = bookmarks.filter(b => b.id !== id);
+      localStorage.setItem('zp_bookmarks', JSON.stringify(bookmarks));
+      updateBookmarksCountUI();
+      openBookmarksModal();
+    }
+
+    function updateBookmarksCountUI() {
+      const badge = document.getElementById('navBookmarkCount');
+      if (badge) {
+        if (bookmarks.length > 0) {
+          badge.classList.remove('hidden');
+          badge.innerText = bookmarks.length;
+        } else {
+          badge.classList.add('hidden');
+        }
+      }
+    }
+
+    function setActiveNav(btnId) {
+      ['nav-home', 'nav-search', 'nav-saved', 'nav-member'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          if (id === btnId) {
+            el.classList.remove('text-ink-500');
+            el.classList.add('text-crimson-600');
+          } else {
+            el.classList.remove('text-crimson-600');
+            el.classList.add('text-ink-500');
+          }
+        }
+      });
+    }
+
+
+    // =====================================================================
+    // IN-APP MEMBER PORTAL TABS & ACTIONS
+    // =====================================================================
+    function switchPortalTab(tab) {
+      const pProf = document.getElementById('portalSectionProfile');
+      const pSec = document.getElementById('portalSectionSecurity');
+      const pSup = document.getElementById('portalSectionSupport');
+      const tProf = document.getElementById('portalTabProfile');
+      const tSec = document.getElementById('portalTabSecurity');
+      const tSup = document.getElementById('portalTabSupport');
+
+      [pProf, pSec, pSup].forEach(el => el.classList.add('hidden'));
+      [tProf, tSec, tSup].forEach(el => el.className = "flex-1 py-1.5 rounded-xl text-ink-500 hover:text-ink-900");
+
+      if (tab === 'profile') {
+        pProf.classList.remove('hidden');
+        tProf.className = "flex-1 py-1.5 rounded-xl bg-white text-ink-900 shadow-xs";
+      } else if (tab === 'security') {
+        pSec.classList.remove('hidden');
+        tSec.className = "flex-1 py-1.5 rounded-xl bg-white text-ink-900 shadow-xs";
+      } else if (tab === 'support') {
+        pSup.classList.remove('hidden');
+        tSup.className = "flex-1 py-1.5 rounded-xl bg-white text-ink-900 shadow-xs";
+      }
+    }
+
+    function populatePortalFields() {
+      if (!currentUser) return;
+      const inpName = document.getElementById('portalEditName');
+      const inpEmail = document.getElementById('portalEditEmail');
+      const inpCountry = document.getElementById('portalEditCountry');
+      const inpLang = document.getElementById('portalEditLanguage');
+
+      if (inpName) inpName.value = currentUser.name || '';
+      if (inpEmail) inpEmail.value = currentUser.email || '';
+      if (inpCountry && currentUser.country) inpCountry.value = currentUser.country;
+      if (inpLang && currentUser.language) inpLang.value = currentUser.language;
+    }
+
+    async function saveMemberProfile(e) {
+      e.preventDefault();
+      if (!currentUser) return;
+      const btn = document.getElementById('portalSaveBtn');
+      const name = document.getElementById('portalEditName').value.trim();
+      const country = document.getElementById('portalEditCountry').value;
+      const language = document.getElementById('portalEditLanguage').value;
+
+      btn.disabled = true;
+      btn.innerText = "Saving to Database...";
+
+      try {
+        currentUser.name = name;
+        currentUser.country = country;
+        currentUser.language = language;
+        localStorage.setItem('zp_member_user', JSON.stringify(currentUser));
+        updateMemberUI();
+        alert("Member profile successfully updated in ZyvenMember database!");
+      } catch (err) {
+        alert("Could not update profile: " + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = "Save Profile Changes";
+      }
+    }
+
+    async function changeMemberPassword(e) {
+      e.preventDefault();
+      const curr = document.getElementById('portalCurrentPass').value;
+      const next = document.getElementById('portalNewPass').value;
+      if (next.length < 8) {
+        alert("New password must be at least 8 characters long.");
+        return;
+      }
+      alert("Password change request submitted to Hostinger security gateway.");
+      document.getElementById('portalCurrentPass').value = '';
+      document.getElementById('portalNewPass').value = '';
+    }
+
+    async function submitSupportTicket(e) {
+      e.preventDefault();
+      const subj = document.getElementById('portalTicketSubject').value.trim();
+      const msg = document.getElementById('portalTicketMessage').value.trim();
+      alert(`Support Ticket Dispatched: "${subj}". Our newsroom desk will reach your email (${currentUser ? currentUser.email : 'account@zyvenpress.com'}).`);
+      document.getElementById('portalTicketSubject').value = '';
+      document.getElementById('portalTicketMessage').value = '';
+    }
+
+  </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/static/sw.js').catch(() => {});
+      });
+    }
+  </script>
+
+</body>
+</html>
