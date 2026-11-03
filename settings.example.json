@@ -1,0 +1,2265 @@
+{
+  "brandName": "ZYVENPRESS",
+  "browserTitle": "ZyvenPress Command Center",
+  "logoLink": "https://zyvenpress.com/wp-content/uploads/zyvenpress-official-logo-hd.png?v=4",
+  "site_logo_url": "https://zyvenpress.com/wp-content/uploads/zyvenpress-official-logo-hd.png?v=4",
+  "primaryUrl": "https://zyvenpress.com",
+  "adminUrl": "https://control.zyvenpress.com",
+  "sslStatus": "active",
+  "restApi": "https://zyvenpress.com/wp-json/",
+  "appPassword": "",
+  "defaultEdition": "international",
+  "tickerToggle": false,
+  "maintenanceToggle": false,
+  "backupFreq": "6hours",
+  "cleanFreq": "weekly",
+  "primaryAiModel": "gemini-3.5-flash",
+  "geminiModel": "gemini-3.5-flash",
+  "groqModel": "openai/gpt-oss-120b",
+  "aiApiKey": "",
+  "geminiApiKey": "",
+  "geminiProApiKey": "",
+  "geminiVisionKey": "",
+  "nanobananaApiKey": "",
+  "veoApiKey": "",
+  "geminiTtsKey": "",
+  "lyriaApiKey": "",
+  "imagenApiKey": "",
+  "musicfxApiKey": "",
+  "gemmaApiKey": "",
+  "openaiApiKey": "",
+  "claudeApiKey": "",
+  "groqApiKey": "",
+  "deepseekApiKey": "",
+  "mistralApiKey": "",
+  "openrouterApiKey": "",
+  "stabilityApiKey": "",
+  "clipdropApiKey": "",
+  "elevenlabsApiKey": "",
+  "site_customization": {
+    "main": {
+      "enabled": true,
+      "eyebrow": "ZYVENPRESS INTELLIGENCE",
+      "hero_title": "Clarity in a world of noise.",
+      "hero_description": "Independent reporting, sharp analysis and the stories shaping tomorrow.",
+      "hero_cta_text": "Explore latest stories",
+      "hero_cta_url": "/latest-news/",
+      "hero_cta_secondary_text": "Watch live briefing",
+      "hero_cta_secondary_url": "/live/",
+      "hero_badge_text": "LIVE GLOBAL DESK",
+      "hero_ticker_text": "Breaking analysis \u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 markets \u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 climate \u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 geopolitics \u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 technology",
+      "hero_media_url": "",
+      "posts_per_page": 10,
+      "show_breaking": true,
+      "show_categories": true,
+      "show_newsletter": true,
+      "show_markets": true,
+      "show_weather": true,
+      "show_hero_badge": true,
+      "show_hero_ticker": true,
+      "show_hero_stats": true,
+      "show_hero_cards": true,
+      "show_social_rail": true,
+      "show_trending_strip": true,
+      "show_category_nav": true,
+      "show_post_meta": true,
+      "show_post_excerpts": true,
+      "news_grid_style": "foxiz_grid",
+      "news_columns": 3,
+      "sidebar_mode": "right_digest",
+      "card_style": "premium_soft",
+      "image_radius": "rounded",
+      "content_width": "wide",
+      "social_x_url": "https://x.com/",
+      "social_youtube_url": "https://youtube.com/",
+      "social_instagram_url": "https://instagram.com/",
+      "layout": "editorial",
+      "hero_align": "left",
+      "hero_height": "tall",
+      "hero_theme": "premium_cream",
+      "hero_cta_style": "black_gold",
+      "accent_color": "#d6a84b",
+      "surface_color": "#f7f2e8"
+    }
+  },
+  "header_options": {
+    "header_theme_preset": "cream",
+    "sticky_header_mode": "sticky",
+    "enable_backdrop_blur": "1",
+    "show_top_bar": "0",
+    "show_live_tv": "1",
+    "show_podcast_button": "1",
+    "show_epaper_button": "1",
+    "scroll_hide_topbar": "0",
+    "scroll_center_logo": "0",
+    "single_post_hide_topbar": "1",
+    "premium_menu_style": "1",
+    "show_radar_bar": "0",
+    "show_live_badge": "1",
+    "show_search_box": "1",
+    "show_market_ticker": "1",
+    "show_breaking_flash": "1",
+    "show_weather_badge": "1",
+    "show_reading_bar": "0",
+    "webFaviconUrl": "https://panel.zyvenpress.com/zp-logo.png",
+    "webTagline": "Spread The Truth",
+    "menu_source": "wp",
+    "header_layout_mode": "center",
+    "mobile_header_fixed": "1",
+    "mobile_header_height": "64",
+    "mobile_logo_width": "235",
+    "mobile_border_style": "crimson",
+    "mobile_header_blur": "1",
+    "show_mobile_search": "0",
+    "show_mobile_account": "1",
+    "mobile_scroll_category_bar": "0",
+    "nav_menu_items": [
+      {
+        "label": "Home",
+        "url": "/",
+        "children": []
+      },
+      {
+        "label": "World",
+        "url": "/category/world/",
+        "children": [
+          {
+            "label": "Global Diplomacy",
+            "url": "/category/world/"
+          },
+          {
+            "label": "Americas & Europe",
+            "url": "/category/world/"
+          },
+          {
+            "label": "Asia-Pacific",
+            "url": "/category/world/"
+          },
+          {
+            "label": "Middle East & Africa",
+            "url": "/category/world/"
+          }
+        ]
+      },
+      {
+        "label": "Business",
+        "url": "/category/business/",
+        "children": [
+          {
+            "label": "Global Markets & Forex",
+            "url": "/category/business/"
+          },
+          {
+            "label": "Economy & Central Banks",
+            "url": "/category/business/"
+          },
+          {
+            "label": "Energy & Commodities",
+            "url": "/category/business/"
+          },
+          {
+            "label": "Real Estate & Wealth",
+            "url": "/category/business/"
+          }
+        ]
+      },
+      {
+        "label": "Technology",
+        "url": "/category/technology/",
+        "children": [
+          {
+            "label": "Artificial Intelligence",
+            "url": "/category/technology/"
+          },
+          {
+            "label": "Quantum & Hardware",
+            "url": "/category/technology/"
+          },
+          {
+            "label": "Cybersecurity & Defense",
+            "url": "/category/technology/"
+          },
+          {
+            "label": "Frontier Science",
+            "url": "/category/technology/"
+          }
+        ]
+      },
+      {
+        "label": "Sports",
+        "url": "/category/sports/",
+        "children": []
+      },
+      {
+        "label": "Politics",
+        "url": "/category/politics/",
+        "children": []
+      },
+      {
+        "label": "Entertainment",
+        "url": "/category/entertainment/",
+        "children": []
+      },
+      {
+        "label": "Public",
+        "url": "/category/public/",
+        "children": []
+      },
+      {
+        "label": "Live Tools",
+        "url": "/weather.php",
+        "children": [
+          {
+            "label": "Weather Radar & Forecast",
+            "url": "/weather.php"
+          },
+          {
+            "label": "Air Quality Index (AQI)",
+            "url": "/aqi.php"
+          },
+          {
+            "label": "Currency Exchange Rates",
+            "url": "/currency.php"
+          },
+          {
+            "label": "Gold & Silver Rates",
+            "url": "/gold-silver.php"
+          },
+          {
+            "label": "World Live Radio",
+            "url": "/radio.php"
+          },
+          {
+            "label": "Global Financial Markets",
+            "url": "/market/"
+          }
+        ]
+      }
+    ],
+    "weather_auto_geo": "1",
+    "breaking_flash_text": "FLASH: Global AI Accord Approved by 40 Nations at Geneva Summit",
+    "weather_city": "NEW DELHI",
+    "weather_temp": "29\u00c3\u201a\u00c2\u00b0C",
+    "weather_aqi": "84 (Moderate)",
+    "weather_api_key": "",
+    "timezone_label": "IST (UTC+5:30)",
+    "market_nifty": "24,850 \u00c3\u00a2\u00e2\u20ac\u201c\u00c2\u00b2 +0.4%",
+    "market_sp500": "5,640 \u00c3\u00a2\u00e2\u20ac\u201c\u00c2\u00b2",
+    "market_gold": "\u00c3\u00a2\u00e2\u20ac\u0161\u00c2\u00b974.2K \u00c3\u00a2\u00e2\u20ac\u201c\u00c2\u00b2",
+    "market_silver": "\u00c3\u00a2\u00e2\u20ac\u0161\u00c2\u00b9219.05/g",
+    "market_btc": "$68,450 \u00c3\u00a2\u00e2\u20ac\u201c\u00c2\u00b2",
+    "market_auto_live": "1",
+    "member_btn_text": "MEMBER ACCESS",
+    "member_btn_url": "#subscribe",
+    "enable_ai_audio": "1",
+    "enable_font_resizer": "1",
+    "enable_edition_select": "0",
+    "radar_tag": "ZYVEN RADAR",
+    "radar_speed": "22s",
+    "radar_headlines": "\u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 Quantum Computing Landmark: Next-Gen Chip Set to Revolutionize Cryptography\n\u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 Global Markets: Tech Rally Drives S&P 500 to Historic Record\n\u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 Energy Pact: New Clean Grid Agreement Signed at Geneva Summit",
+    "webBrandName": "ZYVENPRESS",
+    "site_logo_url": "https://zyvenpress.com/wp-content/uploads/zyvenpress-official-logo-hd.png?v=4",
+    "site_logo_dark_url": "",
+    "site_logo_mobile_url": "",
+    "logo_max_height_desktop": "60",
+    "logo_max_height_mobile": "58",
+    "custom_header_css": "",
+    "custom_header_js": "",
+    "login_url": "/login/",
+    "login_label": "Sign in",
+    "login_sub_label": "Member account",
+    "live_tv_url": "/live/",
+    "sync_wp_menu": "1",
+    "show_theme_toggle": "1",
+    "show_login_button": "1",
+    "show_aqi_badge": "1",
+    "defaultEdition": "international",
+    "show_header_border": "1",
+    "show_live_clock": "1",
+    "clock_format": "12h",
+    "show_live_date": "1",
+    "market_extra": "",
+    "live_tv_label": "LIVE TV",
+    "podcast_label": "PODCAST",
+    "podcast_url": "/podcast/",
+    "epaper_label": "E-PAPER",
+    "epaper_url": "/epaper/",
+    "search_placeholder": "Search stories, topics and analysis...",
+    "radar_pause_hover": "0",
+    "sticky_header": "1",
+    "header_compact_scroll": "1",
+    "header_backdrop_blur": "1"
+  },
+  "news_importer": {
+    "sources": [
+      {
+        "id": "bbc-news",
+        "name": "BBC News",
+        "domain": "bbc.com/news",
+        "category": "World",
+        "tags": [
+          "World",
+          "BBC News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:bbc.com%2Fnews&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "reuters",
+        "name": "Reuters",
+        "domain": "reuters.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "Reuters",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:reuters.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "associated-press",
+        "name": "Associated Press",
+        "domain": "apnews.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "Associated Press",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:apnews.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "al-jazeera",
+        "name": "Al Jazeera",
+        "domain": "aljazeera.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "Al Jazeera",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:aljazeera.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-guardian",
+        "name": "The Guardian",
+        "domain": "theguardian.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "The Guardian",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:theguardian.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-new-york-times",
+        "name": "The New York Times",
+        "domain": "nytimes.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "The New York Times",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:nytimes.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "washington-post",
+        "name": "Washington Post",
+        "domain": "washingtonpost.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "Washington Post",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:washingtonpost.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "wall-street-journal",
+        "name": "Wall Street Journal",
+        "domain": "wsj.com",
+        "category": "Business",
+        "tags": [
+          "Business",
+          "Wall Street Journal",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:wsj.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "financial-times",
+        "name": "Financial Times",
+        "domain": "ft.com",
+        "category": "Business",
+        "tags": [
+          "Business",
+          "Financial Times",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:ft.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "bloomberg",
+        "name": "Bloomberg",
+        "domain": "bloomberg.com",
+        "category": "Business",
+        "tags": [
+          "Business",
+          "Bloomberg",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:bloomberg.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "cnn",
+        "name": "CNN",
+        "domain": "cnn.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "CNN",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:cnn.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "nbc-news",
+        "name": "NBC News",
+        "domain": "nbcnews.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "NBC News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:nbcnews.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "cbs-news",
+        "name": "CBS News",
+        "domain": "cbsnews.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "CBS News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:cbsnews.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "abc-news",
+        "name": "ABC News",
+        "domain": "abcnews.go.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "ABC News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:abcnews.go.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "npr",
+        "name": "NPR",
+        "domain": "npr.org",
+        "category": "World",
+        "tags": [
+          "World",
+          "NPR",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:npr.org&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "politico",
+        "name": "Politico",
+        "domain": "politico.com",
+        "category": "Politics",
+        "tags": [
+          "Politics",
+          "Politico",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:politico.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "axios",
+        "name": "Axios",
+        "domain": "axios.com",
+        "category": "Politics",
+        "tags": [
+          "Politics",
+          "Axios",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:axios.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-hill",
+        "name": "The Hill",
+        "domain": "thehill.com",
+        "category": "Politics",
+        "tags": [
+          "Politics",
+          "The Hill",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:thehill.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "usa-today",
+        "name": "USA Today",
+        "domain": "usatoday.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "USA Today",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:usatoday.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "time",
+        "name": "TIME",
+        "domain": "time.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "TIME",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:time.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "forbes",
+        "name": "Forbes",
+        "domain": "forbes.com",
+        "category": "Business",
+        "tags": [
+          "Business",
+          "Forbes",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:forbes.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "fortune",
+        "name": "Fortune",
+        "domain": "fortune.com",
+        "category": "Business",
+        "tags": [
+          "Business",
+          "Fortune",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:fortune.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "cnbc",
+        "name": "CNBC",
+        "domain": "cnbc.com",
+        "category": "Business",
+        "tags": [
+          "Business",
+          "CNBC",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:cnbc.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "marketwatch",
+        "name": "MarketWatch",
+        "domain": "marketwatch.com",
+        "category": "Business",
+        "tags": [
+          "Business",
+          "MarketWatch",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:marketwatch.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "economist",
+        "name": "Economist",
+        "domain": "economist.com",
+        "category": "Business",
+        "tags": [
+          "Business",
+          "Economist",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:economist.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "bbc-india",
+        "name": "BBC India",
+        "domain": "bbc.com/news/world/asia/india",
+        "category": "India",
+        "tags": [
+          "India",
+          "BBC India",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:bbc.com%2Fnews%2Fworld%2Fasia%2Findia&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "ndtv",
+        "name": "NDTV",
+        "domain": "ndtv.com",
+        "category": "India",
+        "tags": [
+          "India",
+          "NDTV",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:ndtv.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "india-today",
+        "name": "India Today",
+        "domain": "indiatoday.in",
+        "category": "India",
+        "tags": [
+          "India",
+          "India Today",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:indiatoday.in&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "news18",
+        "name": "News18",
+        "domain": "news18.com",
+        "category": "India",
+        "tags": [
+          "India",
+          "News18",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:news18.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "indian-express",
+        "name": "Indian Express",
+        "domain": "indianexpress.com",
+        "category": "India",
+        "tags": [
+          "India",
+          "Indian Express",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:indianexpress.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-hindu",
+        "name": "The Hindu",
+        "domain": "thehindu.com",
+        "category": "India",
+        "tags": [
+          "India",
+          "The Hindu",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:thehindu.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "hindustan-times",
+        "name": "Hindustan Times",
+        "domain": "hindustantimes.com",
+        "category": "India",
+        "tags": [
+          "India",
+          "Hindustan Times",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:hindustantimes.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "times-of-india",
+        "name": "Times of India",
+        "domain": "timesofindia.indiatimes.com",
+        "category": "India",
+        "tags": [
+          "India",
+          "Times of India",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:timesofindia.indiatimes.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "economic-times",
+        "name": "Economic Times",
+        "domain": "economictimes.indiatimes.com",
+        "category": "Business",
+        "tags": [
+          "Business",
+          "Economic Times",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:economictimes.indiatimes.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "business-standard",
+        "name": "Business Standard",
+        "domain": "business-standard.com",
+        "category": "Business",
+        "tags": [
+          "Business",
+          "Business Standard",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:business-standard.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "mint",
+        "name": "Mint",
+        "domain": "livemint.com",
+        "category": "Business",
+        "tags": [
+          "Business",
+          "Mint",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:livemint.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "deccan-herald",
+        "name": "Deccan Herald",
+        "domain": "deccanherald.com",
+        "category": "India",
+        "tags": [
+          "India",
+          "Deccan Herald",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:deccanherald.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "scroll",
+        "name": "Scroll",
+        "domain": "scroll.in",
+        "category": "India",
+        "tags": [
+          "India",
+          "Scroll",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:scroll.in&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-wire",
+        "name": "The Wire",
+        "domain": "thewire.in",
+        "category": "India",
+        "tags": [
+          "India",
+          "The Wire",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:thewire.in&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "firstpost",
+        "name": "Firstpost",
+        "domain": "firstpost.com",
+        "category": "India",
+        "tags": [
+          "India",
+          "Firstpost",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:firstpost.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "zee-news",
+        "name": "Zee News",
+        "domain": "zeenews.india.com",
+        "category": "India",
+        "tags": [
+          "India",
+          "Zee News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:zeenews.india.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "aaj-tak",
+        "name": "Aaj Tak",
+        "domain": "aajtak.in",
+        "category": "India",
+        "tags": [
+          "India",
+          "Aaj Tak",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:aajtak.in&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "abp-live",
+        "name": "ABP Live",
+        "domain": "abplive.com",
+        "category": "India",
+        "tags": [
+          "India",
+          "ABP Live",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:abplive.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "republic-world",
+        "name": "Republic World",
+        "domain": "republicworld.com",
+        "category": "India",
+        "tags": [
+          "India",
+          "Republic World",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:republicworld.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "wion",
+        "name": "WION",
+        "domain": "wionews.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "WION",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:wionews.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "france-24",
+        "name": "France 24",
+        "domain": "france24.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "France 24",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:france24.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "deutsche-welle",
+        "name": "Deutsche Welle",
+        "domain": "dw.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "Deutsche Welle",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:dw.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "euronews",
+        "name": "Euronews",
+        "domain": "euronews.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "Euronews",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:euronews.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "sky-news",
+        "name": "Sky News",
+        "domain": "news.sky.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "Sky News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:news.sky.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "itv-news",
+        "name": "ITV News",
+        "domain": "itv.com/news",
+        "category": "World",
+        "tags": [
+          "World",
+          "ITV News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:itv.com%2Fnews&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-telegraph",
+        "name": "The Telegraph",
+        "domain": "telegraph.co.uk",
+        "category": "World",
+        "tags": [
+          "World",
+          "The Telegraph",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:telegraph.co.uk&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-independent",
+        "name": "The Independent",
+        "domain": "independent.co.uk",
+        "category": "World",
+        "tags": [
+          "World",
+          "The Independent",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:independent.co.uk&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "daily-mail",
+        "name": "Daily Mail",
+        "domain": "dailymail.co.uk",
+        "category": "World",
+        "tags": [
+          "World",
+          "Daily Mail",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:dailymail.co.uk&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "mirror",
+        "name": "Mirror",
+        "domain": "mirror.co.uk",
+        "category": "World",
+        "tags": [
+          "World",
+          "Mirror",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:mirror.co.uk&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "evening-standard",
+        "name": "Evening Standard",
+        "domain": "standard.co.uk",
+        "category": "World",
+        "tags": [
+          "World",
+          "Evening Standard",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:standard.co.uk&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "cbc-news",
+        "name": "CBC News",
+        "domain": "cbc.ca/news",
+        "category": "World",
+        "tags": [
+          "World",
+          "CBC News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:cbc.ca%2Fnews&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "ctv-news",
+        "name": "CTV News",
+        "domain": "ctvnews.ca",
+        "category": "World",
+        "tags": [
+          "World",
+          "CTV News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:ctvnews.ca&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "global-news-canada",
+        "name": "Global News Canada",
+        "domain": "globalnews.ca",
+        "category": "World",
+        "tags": [
+          "World",
+          "Global News Canada",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:globalnews.ca&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "toronto-star",
+        "name": "Toronto Star",
+        "domain": "thestar.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "Toronto Star",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:thestar.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "globe-and-mail",
+        "name": "Globe and Mail",
+        "domain": "theglobeandmail.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "Globe and Mail",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:theglobeandmail.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "abc-australia",
+        "name": "ABC Australia",
+        "domain": "abc.net.au/news",
+        "category": "World",
+        "tags": [
+          "World",
+          "ABC Australia",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:abc.net.au%2Fnews&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "sydney-morning-herald",
+        "name": "Sydney Morning Herald",
+        "domain": "smh.com.au",
+        "category": "World",
+        "tags": [
+          "World",
+          "Sydney Morning Herald",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:smh.com.au&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-age",
+        "name": "The Age",
+        "domain": "theage.com.au",
+        "category": "World",
+        "tags": [
+          "World",
+          "The Age",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:theage.com.au&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "news-com-au",
+        "name": "News.com.au",
+        "domain": "news.com.au",
+        "category": "World",
+        "tags": [
+          "World",
+          "News.com.au",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:news.com.au&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "sbs-news",
+        "name": "SBS News",
+        "domain": "sbs.com.au/news",
+        "category": "World",
+        "tags": [
+          "World",
+          "SBS News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:sbs.com.au%2Fnews&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "south-china-morning-post",
+        "name": "South China Morning Post",
+        "domain": "scmp.com",
+        "category": "Asia",
+        "tags": [
+          "Asia",
+          "South China Morning Post",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:scmp.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "nikkei-asia",
+        "name": "Nikkei Asia",
+        "domain": "asia.nikkei.com",
+        "category": "Asia",
+        "tags": [
+          "Asia",
+          "Nikkei Asia",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:asia.nikkei.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-japan-times",
+        "name": "The Japan Times",
+        "domain": "japantimes.co.jp",
+        "category": "Asia",
+        "tags": [
+          "Asia",
+          "The Japan Times",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:japantimes.co.jp&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "korea-herald",
+        "name": "Korea Herald",
+        "domain": "koreaherald.com",
+        "category": "Asia",
+        "tags": [
+          "Asia",
+          "Korea Herald",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:koreaherald.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "channel-newsasia",
+        "name": "Channel NewsAsia",
+        "domain": "channelnewsasia.com",
+        "category": "Asia",
+        "tags": [
+          "Asia",
+          "Channel NewsAsia",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:channelnewsasia.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "bangkok-post",
+        "name": "Bangkok Post",
+        "domain": "bangkokpost.com",
+        "category": "Asia",
+        "tags": [
+          "Asia",
+          "Bangkok Post",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:bangkokpost.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-straits-times",
+        "name": "The Straits Times",
+        "domain": "straitstimes.com",
+        "category": "Asia",
+        "tags": [
+          "Asia",
+          "The Straits Times",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:straitstimes.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "jakarta-post",
+        "name": "Jakarta Post",
+        "domain": "thejakartapost.com",
+        "category": "Asia",
+        "tags": [
+          "Asia",
+          "Jakarta Post",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:thejakartapost.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "philippine-daily-inquirer",
+        "name": "Philippine Daily Inquirer",
+        "domain": "inquirer.net",
+        "category": "Asia",
+        "tags": [
+          "Asia",
+          "Philippine Daily Inquirer",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:inquirer.net&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "vietnam-news",
+        "name": "Vietnam News",
+        "domain": "vietnamnews.vn",
+        "category": "Asia",
+        "tags": [
+          "Asia",
+          "Vietnam News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:vietnamnews.vn&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "arab-news",
+        "name": "Arab News",
+        "domain": "arabnews.com",
+        "category": "Middle East",
+        "tags": [
+          "Middle East",
+          "Arab News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:arabnews.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-national",
+        "name": "The National",
+        "domain": "thenationalnews.com",
+        "category": "Middle East",
+        "tags": [
+          "Middle East",
+          "The National",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:thenationalnews.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "gulf-news",
+        "name": "Gulf News",
+        "domain": "gulfnews.com",
+        "category": "Middle East",
+        "tags": [
+          "Middle East",
+          "Gulf News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:gulfnews.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "haaretz",
+        "name": "Haaretz",
+        "domain": "haaretz.com",
+        "category": "Middle East",
+        "tags": [
+          "Middle East",
+          "Haaretz",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:haaretz.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "times-of-israel",
+        "name": "Times of Israel",
+        "domain": "timesofisrael.com",
+        "category": "Middle East",
+        "tags": [
+          "Middle East",
+          "Times of Israel",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:timesofisrael.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "jerusalem-post",
+        "name": "Jerusalem Post",
+        "domain": "jpost.com",
+        "category": "Middle East",
+        "tags": [
+          "Middle East",
+          "Jerusalem Post",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:jpost.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "middle-east-eye",
+        "name": "Middle East Eye",
+        "domain": "middleeasteye.net",
+        "category": "Middle East",
+        "tags": [
+          "Middle East",
+          "Middle East Eye",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:middleeasteye.net&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "trt-world",
+        "name": "TRT World",
+        "domain": "trtworld.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "TRT World",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:trtworld.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "anadolu-agency",
+        "name": "Anadolu Agency",
+        "domain": "aa.com.tr",
+        "category": "World",
+        "tags": [
+          "World",
+          "Anadolu Agency",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:aa.com.tr&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "daily-sabah",
+        "name": "Daily Sabah",
+        "domain": "dailysabah.com",
+        "category": "World",
+        "tags": [
+          "World",
+          "Daily Sabah",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:dailysabah.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "techcrunch",
+        "name": "TechCrunch",
+        "domain": "techcrunch.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "TechCrunch",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:techcrunch.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-verge",
+        "name": "The Verge",
+        "domain": "theverge.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "The Verge",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:theverge.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "wired",
+        "name": "Wired",
+        "domain": "wired.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "Wired",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:wired.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "ars-technica",
+        "name": "Ars Technica",
+        "domain": "arstechnica.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "Ars Technica",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:arstechnica.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "engadget",
+        "name": "Engadget",
+        "domain": "engadget.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "Engadget",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:engadget.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "mashable",
+        "name": "Mashable",
+        "domain": "mashable.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "Mashable",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:mashable.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "venturebeat",
+        "name": "VentureBeat",
+        "domain": "venturebeat.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "VentureBeat",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:venturebeat.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "mit-technology-review",
+        "name": "MIT Technology Review",
+        "domain": "technologyreview.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "MIT Technology Review",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:technologyreview.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "gizmodo",
+        "name": "Gizmodo",
+        "domain": "gizmodo.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "Gizmodo",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:gizmodo.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "zdnet",
+        "name": "ZDNet",
+        "domain": "zdnet.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "ZDNet",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:zdnet.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "nature",
+        "name": "Nature",
+        "domain": "nature.com",
+        "category": "Science",
+        "tags": [
+          "Science",
+          "Nature",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:nature.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "sciencedaily",
+        "name": "ScienceDaily",
+        "domain": "sciencedaily.com",
+        "category": "Science",
+        "tags": [
+          "Science",
+          "ScienceDaily",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:sciencedaily.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "nasa",
+        "name": "NASA",
+        "domain": "nasa.gov",
+        "category": "Science",
+        "tags": [
+          "Science",
+          "NASA",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:nasa.gov&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "national-geographic",
+        "name": "National Geographic",
+        "domain": "nationalgeographic.com",
+        "category": "Science",
+        "tags": [
+          "Science",
+          "National Geographic",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:nationalgeographic.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "inside-climate-news",
+        "name": "Inside Climate News",
+        "domain": "insideclimatenews.org",
+        "category": "Climate",
+        "tags": [
+          "Climate",
+          "Inside Climate News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:dailysabah.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "techcrunch",
+        "name": "TechCrunch",
+        "domain": "techcrunch.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "TechCrunch",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:techcrunch.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "the-verge",
+        "name": "The Verge",
+        "domain": "theverge.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "The Verge",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:theverge.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "wired",
+        "name": "Wired",
+        "domain": "wired.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "Wired",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:wired.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "ars-technica",
+        "name": "Ars Technica",
+        "domain": "arstechnica.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "Ars Technica",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:arstechnica.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "engadget",
+        "name": "Engadget",
+        "domain": "engadget.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "Engadget",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:engadget.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "mashable",
+        "name": "Mashable",
+        "domain": "mashable.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "Mashable",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:mashable.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "venturebeat",
+        "name": "VentureBeat",
+        "domain": "venturebeat.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "VentureBeat",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:venturebeat.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "mit-technology-review",
+        "name": "MIT Technology Review",
+        "domain": "technologyreview.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "MIT Technology Review",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:technologyreview.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "gizmodo",
+        "name": "Gizmodo",
+        "domain": "gizmodo.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "Gizmodo",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:gizmodo.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "zdnet",
+        "name": "ZDNet",
+        "domain": "zdnet.com",
+        "category": "Technology",
+        "tags": [
+          "Technology",
+          "ZDNet",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:zdnet.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "nature",
+        "name": "Nature",
+        "domain": "nature.com",
+        "category": "Science",
+        "tags": [
+          "Science",
+          "Nature",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:nature.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "sciencedaily",
+        "name": "ScienceDaily",
+        "domain": "sciencedaily.com",
+        "category": "Science",
+        "tags": [
+          "Science",
+          "ScienceDaily",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:sciencedaily.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "nasa",
+        "name": "NASA",
+        "domain": "nasa.gov",
+        "category": "Science",
+        "tags": [
+          "Science",
+          "NASA",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:nasa.gov&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "national-geographic",
+        "name": "National Geographic",
+        "domain": "nationalgeographic.com",
+        "category": "Science",
+        "tags": [
+          "Science",
+          "National Geographic",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:nationalgeographic.com&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "id": "inside-climate-news",
+        "name": "Inside Climate News",
+        "domain": "insideclimatenews.org",
+        "category": "Climate",
+        "tags": [
+          "Climate",
+          "Inside Climate News",
+          "Syndicated"
+        ],
+        "enabled": true,
+        "feed_url": "https://news.google.com/rss/search?q=site:insideclimatenews.org&hl=en-US&gl=US&ceid=US:en"
+      },
+      {
+        "name": "ESPN Cricinfo",
+        "url": "https://www.espncricinfo.com/rss/content/story/feeds/0.xml",
+        "category": "Sports",
+        "active": true
+      },
+      {
+        "name": "Sky Sports Latest",
+        "url": "https://www.skysports.com/rss/12040",
+        "category": "Sports",
+        "active": true
+      },
+      {
+        "name": "The Guardian Sport",
+        "url": "https://www.theguardian.com/sport/rss",
+        "category": "Sports",
+        "active": true
+      },
+      {
+        "name": "Times of India Sports",
+        "url": "https://timesofindia.indiatimes.com/rssfeeds/4719148.cms",
+        "category": "Sports",
+        "active": true
+      },
+      {
+        "name": "NDTV Sports News",
+        "url": "https://feeds.feedburner.com/ndtvsports-latest",
+        "category": "Sports",
+        "active": true
+      },
+      {
+        "name": "Variety Film & TV",
+        "url": "https://variety.com/feed/",
+        "category": "Entertainment",
+        "active": true
+      },
+      {
+        "name": "The Hollywood Reporter",
+        "url": "https://www.hollywoodreporter.com/feed/",
+        "category": "Entertainment",
+        "active": true
+      },
+      {
+        "name": "Times of India Entertainment",
+        "url": "https://timesofindia.indiatimes.com/rssfeeds/1081479906.cms",
+        "category": "Entertainment",
+        "active": true
+      },
+      {
+        "name": "NDTV Movies & Entertainment",
+        "url": "https://feeds.feedburner.com/ndtvmovies-latest",
+        "category": "Entertainment",
+        "active": true
+      },
+      {
+        "name": "Indian Express Politics",
+        "url": "https://indianexpress.com/section/political-pulse/feed/",
+        "category": "Politics",
+        "active": true
+      },
+      {
+        "name": "The Hindu National Politics",
+        "url": "https://www.thehindu.com/news/national/feeder/default.rss",
+        "category": "Politics",
+        "active": true
+      }
+    ],
+    "updated_at": "2026-08-10T17:56:27+00:00"
+  },
+  "webBrandName": "ZYVENPRESS",
+  "webTagline": "Spread The Truth",
+  "webFaviconUrl": "https://panel.zyvenpress.com/zp-logo.png",
+  "news_proxy_key": "ZP_WIRE_SECURE_KEY_2026",
+  "news_cache_ttl": 900,
+  "news_article_cache_ttl": 3600,
+  "auto_pilot": {
+    "enabled": true,
+    "categories": [
+      "world",
+      "politics",
+      "business",
+      "technology",
+      "india",
+      "asia",
+      "science",
+      "health",
+      "climate",
+      "sports",
+      "entertainment"
+    ],
+    "per_source": 3,
+    "max_posts": 1,
+    "provider": "gemini",
+    "groqModel": "openai/gpt-oss-120b",
+    "publish_mode": "publish",
+    "require_verify": true,
+    "min_score": 85,
+    "india_priority": true,
+    "schedule_minutes": 360,
+    "skip_after_publish": true,
+    "dedup_enabled": true,
+    "dedup_threshold": 3,
+    "multi_source": true,
+    "trending_enabled": true,
+    "trending_min": 3,
+    "author_rotation": true,
+    "author_ids": [
+      16,
+      15,
+      7,
+      18,
+      17,
+      14
+    ],
+    "angle_variety": true,
+    "highlights_enabled": true,
+    "seo_enabled": true,
+    "alert_email": "",
+    "alert_email_enabled": false,
+    "alert_telegram_bot": "8883131869:AAGXXdVrQapCCPrFJOmiIVJRM5CHlv8K74E",
+    "alert_telegram_chat": "8037276047",
+    "alert_telegram_enabled": true,
+    "alert_whatsapp_number": "",
+    "alert_whatsapp_key": "",
+    "alert_whatsapp_enabled": false,
+    "max_daily_posts": 4,
+    "geminiModel": "gemini-3.5-flash",
+    "defaultPostAuthor": 16,
+    "wp_cron": true
+  },
+  "auto_pilot_seen": {
+    "b453563e9eceea83a79d51ea22aee367": {
+      "post_id": 2888,
+      "time": 1786389714
+    },
+    "667347143737d75f77f17f35cf10d146": {
+      "post_id": 3198,
+      "time": 1786468737
+    }
+  },
+  "legal_options": {
+    "company_name": "ZyvenPress",
+    "parent_entity": "ZyvenPress Independent Media",
+    "funding_model": "Independent Digital Media Initiative",
+    "contact_email": "official@zyvenpress.com",
+    "press_email": "press@zyvenpress.com",
+    "corrections_email": "corrections@zyvenpress.com",
+    "ads_email": "official@zyvenpress.com",
+    "legal_email": "legal@zyvenpress.com",
+    "contact_phone": "+91 93540 44837",
+    "contact_address": "Delhi Media Hub, New Delhi 110001 | International Editorial Bureau",
+    "editor_in_chief": "Arsh Mansoori, Managing Editor & Publisher",
+    "ai_policy_text": "ZyvenPress employs AI for real-time market data aggregation and draft assistance under strict 100% human editorial verification."
+  },
+  "footer_brand_name": "ZyvenPress",
+  "footer_brand_tagline": "Global news, trusted perspectives. Delivering unbiased, real-time news & telemetry from every corner of the world.",
+  "footer_copyright": "\u00c2\u00a9 2026 ZyvenPress International News. All rights reserved.",
+  "footer_trust_badge": "Verified Secured Portal",
+  "footer_uptime_text": "99.99% Uptime \u00e2\u20ac\u00a2 SSL 256-Bit",
+  "footer_top_divider_style": "gold_shimmer",
+  "footer_show_brand": "1",
+  "footer_show_newsletter": "1",
+  "footer_show_socials": "1",
+  "footer_show_legal": "1",
+  "footer_show_trust": "1",
+  "footer_show_uptime": "1",
+  "footer_show_back_to_top": "1",
+  "footer_newsletter_title": "STAY INFORMED 24/7",
+  "footer_newsletter_desc": "Subscribe to our intelligence dispatch to get breaking stories delivered straight to your inbox.",
+  "footer_newsletter_placeholder": "Your email address",
+  "footer_newsletter_button": "Subscribe",
+  "footer_newsletter_consent": "I agree to receive ZyvenPress breaking-news emails. I can unsubscribe anytime.",
+  "footer_fb_url": "https://facebook.com",
+  "footer_tw_url": "https://x.com",
+  "footer_ig_url": "https://instagram.com",
+  "footer_yt_url": "https://youtube.com",
+  "footer_li_url": "https://linkedin.com",
+  "footer_tg_url": "https://t.me",
+  "footer_wa_url": "https://whatsapp.com",
+  "footer_threads_url": "https://threads.net",
+  "footer_discord_url": "",
+  "footer_rss_url": "/rss.php",
+  "footer_legal_links": [
+    {
+      "label": "Privacy Policy",
+      "url": "/privacy-policy.php"
+    },
+    {
+      "label": "Terms of Use",
+      "url": "/terms-of-service.php"
+    },
+    {
+      "label": "Disclaimer",
+      "url": "/disclaimer.php"
+    },
+    {
+      "label": "DMCA Notice",
+      "url": "/dmca-policy.php"
+    },
+    {
+      "label": "Editorial Policy",
+      "url": "/editorial-policy.php"
+    },
+    {
+      "label": "Corrections & Fact-Check",
+      "url": "/corrections.php"
+    },
+    {
+      "label": "About Us",
+      "url": "/about-us.php"
+    },
+    {
+      "label": "Contact Us",
+      "url": "/contact-us.php"
+    },
+    {
+      "label": "RSS Wire",
+      "url": "/rss.php"
+    },
+    {
+      "label": "Newsroom Vault",
+      "url": "https://control.zyvenpress.com/"
+    }
+  ],
+  "smtp_enabled": "1",
+  "smtp_host": "smtp.hostinger.com",
+  "smtp_port": 465,
+  "smtp_encryption": "ssl",
+  "smtp_username": "newsletter@zyvenpress.com",
+  "smtp_password": "",
+  "smtp_from_name": "ZyvenPress Newsroom",
+  "smtp_from_email": "zyvenpress@gmail.com",
+  "show_radar_bar": "0",
+  "show_breaking_flash": "0",
+  "show_breaking": false,
+  "weather_city": "NEW DELHI",
+  "weather_temp": "29\u00c3\u201a\u00c2\u00b0C",
+  "weather_aqi": "84 (Moderate)",
+  "market_nifty": "24,850 \u00c3\u00a2\u00e2\u20ac\u201c\u00c2\u00b2 +0.4%",
+  "market_btc": "$68,450 \u00c3\u00a2\u00e2\u20ac\u201c\u00c2\u00b2",
+  "market_extra": "",
+  "radar_tag": "ZYVEN RADAR",
+  "radar_headlines": "\u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 Quantum Computing Landmark: Next-Gen Chip Set to Revolutionize Cryptography\n\u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 Global Markets: Tech Rally Drives S&P 500 to Historic Record\n\u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 Energy Pact: New Clean Grid Agreement Signed at Geneva Summit",
+  "breaking_flash_text": "\u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 Quantum Computing Landmark: Next-Gen Chip Set to Revolutionize Cryptography\n\u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 Global Markets: Tech Rally Drives S&P 500 to Historic Record\n\u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a2 Energy Pact: New Clean Grid Agreement Signed at Geneva Summit",
+  "search_placeholder": "Search stories, topics and analysis...",
+  "nav_menu_items": [
+    {
+      "label": "Home",
+      "url": "/",
+      "children": []
+    },
+    {
+      "label": "World",
+      "url": "/category/world/",
+      "children": [
+        {
+          "label": "Global Diplomacy",
+          "url": "/category/world/"
+        },
+        {
+          "label": "Americas & Europe",
+          "url": "/category/world/"
+        },
+        {
+          "label": "Asia-Pacific",
+          "url": "/category/world/"
+        },
+        {
+          "label": "Middle East & Africa",
+          "url": "/category/world/"
+        }
+      ]
+    },
+    {
+      "label": "Business",
+      "url": "/category/business/",
+      "children": [
+        {
+          "label": "Global Markets & Forex",
+          "url": "/category/business/"
+        },
+        {
+          "label": "Economy & Central Banks",
+          "url": "/category/business/"
+        },
+        {
+          "label": "Energy & Commodities",
+          "url": "/category/business/"
+        },
+        {
+          "label": "Real Estate & Wealth",
+          "url": "/category/business/"
+        }
+      ]
+    },
+    {
+      "label": "Technology",
+      "url": "/category/technology/",
+      "children": [
+        {
+          "label": "Artificial Intelligence",
+          "url": "/category/technology/"
+        },
+        {
+          "label": "Quantum & Hardware",
+          "url": "/category/technology/"
+        },
+        {
+          "label": "Cybersecurity & Defense",
+          "url": "/category/technology/"
+        },
+        {
+          "label": "Frontier Science",
+          "url": "/category/technology/"
+        }
+      ]
+    },
+    {
+      "label": "Sports",
+      "url": "/category/sports/",
+      "children": []
+    },
+    {
+      "label": "Politics",
+      "url": "/category/politics/",
+      "children": []
+    },
+    {
+      "label": "Entertainment",
+      "url": "/category/entertainment/",
+      "children": []
+    },
+    {
+      "label": "Public",
+      "url": "/category/public/",
+      "children": []
+    },
+    {
+      "label": "Live Tools",
+      "url": "/weather.php",
+      "children": [
+        {
+          "label": "Weather Radar & Forecast",
+          "url": "/weather.php"
+        },
+        {
+          "label": "Air Quality Index (AQI)",
+          "url": "/aqi.php"
+        },
+        {
+          "label": "Currency Exchange Rates",
+          "url": "/currency.php"
+        },
+        {
+          "label": "Gold & Silver Rates",
+          "url": "/gold-silver.php"
+        },
+        {
+          "label": "World Live Radio",
+          "url": "/radio.php"
+        },
+        {
+          "label": "Global Financial Markets",
+          "url": "/market/"
+        }
+      ]
+    }
+  ],
+  "updated_at": "2026-10-24 10:25:02",
+  "dashTagline": "AI Executive Control Matrix",
+  "dashVersionText": "Enterprise v10 \u00e2\u20ac\u00a2 Build 2026",
+  "webDarkLogo": "https://panel.zyvenpress.com/zp-logo.png",
+  "webLightLogo": "https://panel.zyvenpress.com/zp-logo.png",
+  "copyrightText": "\u00c2\u00a9 2026 ZyvenPress Inc. All rights reserved.",
+  "systemLang": "en-US",
+  "systemTimezone": "Asia/Kolkata",
+  "dateFormat": "Y-m-d H:i",
+  "factCheckLevel": "high",
+  "pollinationsKey": "No API Key Required (Always Active)",
+  "webSpeechKey": "No API Key Required (Native Browser)",
+  "tfaMode": "enforced",
+  "sessionTimeout": "60",
+  "ipRestriction": false,
+  "site_logo_dark_url": "",
+  "site_logo_mobile_url": "",
+  "logo_max_height_desktop": "60",
+  "logo_max_height_mobile": "58",
+  "mobile_header_fixed": "1",
+  "mobile_header_height": "64",
+  "mobile_logo_width": "235",
+  "mobile_border_style": "crimson",
+  "mobile_header_blur": "1",
+  "show_mobile_search": "0",
+  "show_mobile_account": "1",
+  "mobile_scroll_category_bar": "0",
+  "show_top_bar": "0",
+  "dashFaviconUrl": "",
+  "wpAdminUrl": "https://zyvenpress.com/wp-admin/",
+  "wpUser": "",
+  "defaultPostStatus": "draft",
+  "defaultPostAuthor": "",
+  "defaultCategoryId": "1",
+  "wpUploadsUrl": "https://zyvenpress.com/wp-content/uploads/",
+  "webhookSecret": "",
+  "foxizOptionsPath": "admin.php?page=ruby-options",
+  "autoFeaturedImageToggle": true,
+  "autoPingIndexToggle": true,
+  "togetherApiKey": "",
+  "huggingfaceApiKey": "",
+  "cohereApiKey": "",
+  "perplexityApiKey": "",
+  "cerebrasApiKey": "",
+  "grokApiKey": "",
+  "mistralProApiKey": "",
+  "deepseekProApiKey": "",
+  "perplexityProApiKey": "",
+  "fireworksApiKey": "",
+  "anyscaleApiKey": "",
+  "replicateApiKey": "",
+  "lexicaApiKey": "",
+  "craiyonApiKey": "",
+  "deepaiApiKey": "",
+  "hfImageApiKey": "",
+  "catbirdApiKey": "",
+  "unsplashApiKey": "",
+  "midjourneyApiKey": "",
+  "dalle3ApiKey": "",
+  "stabilityProApiKey": "",
+  "fluxApiKey": "",
+  "ideogramApiKey": "",
+  "leonardoApiKey": "",
+  "fireflyApiKey": "",
+  "canvaApiKey": "",
+  "runwareApiKey": "",
+  "lumaApiKey": "",
+  "runwayApiKey": "",
+  "pikaApiKey": "",
+  "haiperApiKey": "",
+  "viduApiKey": "",
+  "klingApiKey": "",
+  "kaiberApiKey": "",
+  "pixverseApiKey": "",
+  "svdApiKey": "",
+  "capcutApiKey": "",
+  "soraApiKey": "",
+  "runwayProApiKey": "",
+  "lumaProApiKey": "",
+  "heygenApiKey": "",
+  "synthesiaApiKey": "",
+  "didApiKey": "",
+  "wanApiKey": "",
+  "hailuoApiKey": "",
+  "hunyuanApiKey": "",
+  "groqWhisperKey": "",
+  "barkApiKey": "",
+  "musicgenApiKey": "",
+  "audiocraftApiKey": "",
+  "tortoiseApiKey": "",
+  "voiceifyApiKey": "",
+  "voiceaiApiKey": "",
+  "sunoApiKey": "",
+  "udioApiKey": "",
+  "murfApiKey": "",
+  "playhtApiKey": "",
+  "resembleApiKey": "",
+  "speechifyApiKey": "",
+  "soundrawApiKey": "",
+  "aivaApiKey": "",
+  "googleNewsPubId": "",
+  "indexNowKey": "",
+  "rssFeedUrl": "https://zyvenpress.com/feed/",
+  "googleNewsRssUrl": "https://zyvenpress.com/feed/gn/",
+  "adsensePublisherId": "",
+  "adParagraphInterval": "3",
+  "maxFailedLogins": "5"
+}
